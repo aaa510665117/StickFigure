@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChoseTypeTableViewCell.h"
 
-@interface StickFigureViewController : UIViewController
+@interface StickFigureViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end
