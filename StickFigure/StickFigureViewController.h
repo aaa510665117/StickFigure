@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ChoseTypeTableViewCell.h"
+#import "StickTypeCollectionViewCell.h"
 
-@interface StickFigureViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+#define UISCREEN_BOUNDS_SIZE      [UIScreen mainScreen].bounds.size // 屏幕的物理尺寸
+
+@interface StickFigureViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end

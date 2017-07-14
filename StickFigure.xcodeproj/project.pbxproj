@@ -16,6 +16,7 @@
 		1AE7FD4E1F18BDC2002666DA /* StickFigure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE7FD4D1F18BDC2002666DA /* StickFigure.storyboard */; };
 		1AE7FD511F18BDDE002666DA /* StickFigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD501F18BDDE002666DA /* StickFigureViewController.m */; };
 		1AE7FD551F18C051002666DA /* ChoseTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD541F18C051002666DA /* ChoseTypeTableViewCell.m */; };
+		1AE7FD581F18C46C002666DA /* StickTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD571F18C46C002666DA /* StickTypeCollectionViewCell.m */; };
 		E45D1CD1C5B626F1892B6610 /* libPods-StickFigure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF896D53A54B131D97C11D1 /* libPods-StickFigure.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,8 @@
 		1AE7FD501F18BDDE002666DA /* StickFigureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickFigureViewController.m; sourceTree = "<group>"; };
 		1AE7FD531F18C051002666DA /* ChoseTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoseTypeTableViewCell.h; sourceTree = "<group>"; };
 		1AE7FD541F18C051002666DA /* ChoseTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoseTypeTableViewCell.m; sourceTree = "<group>"; };
+		1AE7FD561F18C46C002666DA /* StickTypeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickTypeCollectionViewCell.h; sourceTree = "<group>"; };
+		1AE7FD571F18C46C002666DA /* StickTypeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickTypeCollectionViewCell.m; sourceTree = "<group>"; };
 		3DF896D53A54B131D97C11D1 /* libPods-StickFigure.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StickFigure.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		498D707326E41C64291E0639 /* Pods-StickFigure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StickFigure.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StickFigure/Pods-StickFigure.debug.xcconfig"; sourceTree = "<group>"; };
 		800C73853689F6A2CD59C59E /* Pods-StickFigure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StickFigure.release.xcconfig"; path = "Pods/Target Support Files/Pods-StickFigure/Pods-StickFigure.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 			children = (
 				1AE7FD531F18C051002666DA /* ChoseTypeTableViewCell.h */,
 				1AE7FD541F18C051002666DA /* ChoseTypeTableViewCell.m */,
+				1AE7FD561F18C46C002666DA /* StickTypeCollectionViewCell.h */,
+				1AE7FD571F18C46C002666DA /* StickTypeCollectionViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 			files = (
 				1AE7FD511F18BDDE002666DA /* StickFigureViewController.m in Sources */,
 				1AE7FD1F1F18B466002666DA /* AppDelegate.m in Sources */,
+				1AE7FD581F18C46C002666DA /* StickTypeCollectionViewCell.m in Sources */,
 				1AE7FD551F18C051002666DA /* ChoseTypeTableViewCell.m in Sources */,
 				1AE7FD1C1F18B466002666DA /* main.m in Sources */,
 			);
