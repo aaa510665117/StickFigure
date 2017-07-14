@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  StickFigureViewController.h
 //  StickFigure
 //
 //  Created by ZY on 2017/7/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface StickFigureViewController : UIViewController
 
 @end
-

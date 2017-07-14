@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		1AE7FD1C1F18B466002666DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD1B1F18B466002666DA /* main.m */; };
 		1AE7FD1F1F18B466002666DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD1E1F18B466002666DA /* AppDelegate.m */; };
-		1AE7FD221F18B466002666DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD211F18B466002666DA /* ViewController.m */; };
-		1AE7FD251F18B466002666DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE7FD231F18B466002666DA /* Main.storyboard */; };
 		1AE7FD271F18B466002666DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AE7FD261F18B466002666DA /* Assets.xcassets */; };
 		1AE7FD2A1F18B466002666DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE7FD281F18B466002666DA /* LaunchScreen.storyboard */; };
 		1AE7FD351F18B466002666DA /* StickFigureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD341F18B466002666DA /* StickFigureTests.m */; };
 		1AE7FD401F18B466002666DA /* StickFigureUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD3F1F18B466002666DA /* StickFigureUITests.m */; };
+		1AE7FD4E1F18BDC2002666DA /* StickFigure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE7FD4D1F18BDC2002666DA /* StickFigure.storyboard */; };
+		1AE7FD511F18BDDE002666DA /* StickFigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD501F18BDDE002666DA /* StickFigureViewController.m */; };
 		E45D1CD1C5B626F1892B6610 /* libPods-StickFigure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF896D53A54B131D97C11D1 /* libPods-StickFigure.a */; };
 /* End PBXBuildFile section */
 
@@ -40,9 +40,6 @@
 		1AE7FD1B1F18B466002666DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1AE7FD1D1F18B466002666DA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1AE7FD1E1F18B466002666DA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1AE7FD201F18B466002666DA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1AE7FD211F18B466002666DA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1AE7FD241F18B466002666DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AE7FD261F18B466002666DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AE7FD291F18B466002666DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AE7FD2B1F18B466002666DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +49,9 @@
 		1AE7FD3B1F18B466002666DA /* StickFigureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StickFigureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE7FD3F1F18B466002666DA /* StickFigureUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StickFigureUITests.m; sourceTree = "<group>"; };
 		1AE7FD411F18B466002666DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AE7FD4D1F18BDC2002666DA /* StickFigure.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StickFigure.storyboard; sourceTree = "<group>"; };
+		1AE7FD4F1F18BDDE002666DA /* StickFigureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickFigureViewController.h; sourceTree = "<group>"; };
+		1AE7FD501F18BDDE002666DA /* StickFigureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickFigureViewController.m; sourceTree = "<group>"; };
 		3DF896D53A54B131D97C11D1 /* libPods-StickFigure.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StickFigure.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		498D707326E41C64291E0639 /* Pods-StickFigure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StickFigure.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StickFigure/Pods-StickFigure.debug.xcconfig"; sourceTree = "<group>"; };
 		800C73853689F6A2CD59C59E /* Pods-StickFigure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StickFigure.release.xcconfig"; path = "Pods/Target Support Files/Pods-StickFigure/Pods-StickFigure.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,13 +110,13 @@
 			children = (
 				1AE7FD1D1F18B466002666DA /* AppDelegate.h */,
 				1AE7FD1E1F18B466002666DA /* AppDelegate.m */,
-				1AE7FD201F18B466002666DA /* ViewController.h */,
-				1AE7FD211F18B466002666DA /* ViewController.m */,
-				1AE7FD231F18B466002666DA /* Main.storyboard */,
 				1AE7FD261F18B466002666DA /* Assets.xcassets */,
 				1AE7FD281F18B466002666DA /* LaunchScreen.storyboard */,
 				1AE7FD2B1F18B466002666DA /* Info.plist */,
 				1AE7FD1A1F18B466002666DA /* Supporting Files */,
+				1AE7FD4D1F18BDC2002666DA /* StickFigure.storyboard */,
+				1AE7FD4F1F18BDDE002666DA /* StickFigureViewController.h */,
+				1AE7FD501F18BDDE002666DA /* StickFigureViewController.m */,
 			);
 			path = StickFigure;
 			sourceTree = "<group>";
@@ -277,8 +277,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AE7FD2A1F18B466002666DA /* LaunchScreen.storyboard in Resources */,
+				1AE7FD4E1F18BDC2002666DA /* StickFigure.storyboard in Resources */,
 				1AE7FD271F18B466002666DA /* Assets.xcassets in Resources */,
-				1AE7FD251F18B466002666DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AE7FD221F18B466002666DA /* ViewController.m in Sources */,
+				1AE7FD511F18BDDE002666DA /* StickFigureViewController.m in Sources */,
 				1AE7FD1F1F18B466002666DA /* AppDelegate.m in Sources */,
 				1AE7FD1C1F18B466002666DA /* main.m in Sources */,
 			);
@@ -389,14 +389,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1AE7FD231F18B466002666DA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1AE7FD241F18B466002666DA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1AE7FD281F18B466002666DA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
