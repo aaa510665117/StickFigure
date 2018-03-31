@@ -9,6 +9,12 @@
 #ifndef StickFigure_Prefix_pch
 #define StickFigure_Prefix_pch
 
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "HMSegmentedControl.h"
+
+//#define Service_Local  @"http://192.168.20.32/StickFigure/"
+#define Service_Local @"https://stickfigure-1-1253886669.cos.ap-beijing.myqcloud.com/StickFigure/"
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
