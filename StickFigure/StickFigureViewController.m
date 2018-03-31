@@ -14,6 +14,8 @@
     NSArray * animalImgAry;
     NSArray * fruitsImgAry;
     NSArray * vegetablesImgAry;
+    NSArray * cartoonImgAry;
+    NSArray * vehicleImgAry;
 }
 @property(nonatomic, assign) long choseTypeIndex;
 @property (nonatomic, strong)HMSegmentedControl *mySegment;
@@ -43,6 +45,9 @@
     animalImgAry = @[@"bee",@"cat",@"catGroup",@"crab",@"dog",@"fish",@"mouse",@"potato",@"bear",@"snail",@"swallow",@"owl",@"fish2",@"rhinoceros",@"butterfly",@"hedgehog",@"pig",@"Elephant",@"giraffe",@"chicken",@"cow"];
     fruitsImgAry = @[@"apple",@"watermelon",@"banana",@"strawberry",@"grape",@"pineapple",@"durian",@"mango",@"carambola",@"peach",@"lemon",@"persimmon",@"tangerine",@"cherry",@"pear"];
     vegetablesImgAry = @[@"cabbage",@"cauliflower",@"cucumber",@"eggplant",@"greenbean",@"greencapsicum",@"lotus",@"mushroom",@"peanut",@"potato",@"pumpkin",@"radish",@"tomato"];
+    cartoonImgAry = @[@"dongman1",@"dongman2",@"dongman3",@"dongman4",@"dongman5",@"dongman6",@"dongman7",@"dongman8",@"dongman9",@"dongman10",@"dongman11",@"dongman12",@"dongman13",@"dongman14",@"dongman15"];
+    vehicleImgAry = @[@"Vehicle1",@"Vehicle2",@"Vehicle3",@"Vehicle4",@"Vehicle5",@"Vehicle6",@"Vehicle7",@"Vehicle8",@"Vehicle9",@"Vehicle10",@"Vehicle11",@"Vehicle12",@"Vehicle13",@"Vehicle14",@"Vehicle15"];
+
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"上传" style:UIBarButtonItemStylePlain target:self action:@selector(draw)];
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
 
@@ -106,6 +111,16 @@
             return vegetablesImgAry.count;
         }
             break;
+        case 3:
+        {
+            return cartoonImgAry.count;
+        }
+            break;
+        case 4:
+        {
+            return vehicleImgAry.count;
+        }
+            break;
         default:
             break;
     }
@@ -134,9 +149,18 @@
             [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@/%@.jpg",Service_Local,@"Vegetables/",[vegetablesImgAry objectAtIndex:indexPath.row],[vegetablesImgAry objectAtIndex:indexPath.row]]]];
         }
             break;
+        case 3:
+        {
+            [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@/%@.jpg",Service_Local,@"Cartoon/",[cartoonImgAry objectAtIndex:indexPath.row],[cartoonImgAry objectAtIndex:indexPath.row]]]];
+        }
+            break;
+        case 4:
+        {
+            [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@/%@.jpg",Service_Local,@"Vehicle/",[vehicleImgAry objectAtIndex:indexPath.row],[vehicleImgAry objectAtIndex:indexPath.row]]]];
+        }
+            break;
         default:
             [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@/%@.jpg",Service_Local,@"Animal/",[animalImgAry objectAtIndex:indexPath.row],[animalImgAry objectAtIndex:indexPath.row]]]];
-
             break;
     }
     
