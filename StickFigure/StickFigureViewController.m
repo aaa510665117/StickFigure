@@ -39,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"扬哥教你简笔画";
+    self.title = @"扬哥带你简笔画";
 //    choseTypeAry = @[@"动物",@"水果",@"蔬菜",@"植物",@"交通工具"];
     choseTypeAry = @[@"动物",@"水果",@"蔬菜",@"动漫",@"交通工具"];
     animalImgAry = @[@"bee",@"cat",@"catGroup",@"crab",@"dog",@"fish",@"mouse",@"potato",@"bear",@"snail",@"swallow",@"owl",@"fish2",@"rhinoceros",@"butterfly",@"hedgehog",@"pig",@"Elephant",@"giraffe",@"chicken",@"cow"];
