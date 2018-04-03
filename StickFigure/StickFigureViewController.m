@@ -19,6 +19,7 @@
 }
 @property(nonatomic, assign) long choseTypeIndex;
 @property (nonatomic, strong)HMSegmentedControl *mySegment;
+@property (nonatomic, strong) NSMutableArray * photos;      //用于查看大图
 
 @end
 
@@ -32,6 +33,7 @@
     {
         if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
             self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
     }
     return self;
 }
@@ -49,7 +51,7 @@
     vehicleImgAry = @[@"Vehicle1",@"Vehicle2",@"Vehicle3",@"Vehicle4",@"Vehicle5",@"Vehicle6",@"Vehicle7",@"Vehicle8",@"Vehicle9",@"Vehicle10",@"Vehicle11",@"Vehicle12",@"Vehicle13",@"Vehicle14",@"Vehicle15"];
 
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"上传" style:UIBarButtonItemStylePlain target:self action:@selector(draw)];
-    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+//    [UINavigationBar appearance].tintColor = [UIColor darkGrayColor];
 
     _choseTypeIndex = 0;
     
@@ -68,11 +70,15 @@
     [_mySegment setIndexChangeBlock:^(NSInteger index) {
         weakSelf.choseTypeIndex = index;
         [weakSelf.showImgCollectionView reloadData];
-//        if(weakSelf.changIndex) weakSelf.changIndex(index);
     }];
     [self.view addSubview:_mySegment];
     
-    [[SDImageCache sharedImageCache] clearDisk];  //清除缓存
+//    [[SDImageCache sharedImageCache] clearDisk];  //清除缓存
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 -(void)draw
@@ -167,6 +173,67 @@
     return cell;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    _photos = [NSMutableArray array];
+    switch (_choseTypeIndex) {
+        case 0:
+        {
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@/%@.jpg",Service_Local,@"Animal/",[animalImgAry objectAtIndex:indexPath.row],[animalImgAry objectAtIndex:indexPath.row]]]]];
+        }
+            break;
+        case 1:
+        {
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@/%@.jpg",Service_Local,@"Fruits/",[fruitsImgAry objectAtIndex:indexPath.row],[fruitsImgAry objectAtIndex:indexPath.row]]]]];
+        }
+            break;
+        case 2:
+        {
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@/%@.jpg",Service_Local,@"Vegetables/",[vegetablesImgAry objectAtIndex:indexPath.row],[vegetablesImgAry objectAtIndex:indexPath.row]]]]];
+        }
+            break;
+        case 3:
+        {
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@/%@.jpg",Service_Local,@"Cartoon/",[cartoonImgAry objectAtIndex:indexPath.row],[cartoonImgAry objectAtIndex:indexPath.row]]]]];
+        }
+            break;
+        case 4:
+        {
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@/%@.jpg",Service_Local,@"Vehicle/",[vehicleImgAry objectAtIndex:indexPath.row],[vehicleImgAry objectAtIndex:indexPath.row]]]]];
+        }
+            break;
+        default:
+            
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@/%@.jpg",Service_Local,@"Animal/",[animalImgAry objectAtIndex:indexPath.row],[animalImgAry objectAtIndex:indexPath.row]]]]];
+            break;
+    }
+    
+        
+    // Create browser (must be done each time photo browser is
+    // displayed. Photo browser objects cannot be re-used)
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    // Set options
+    browser.displayActionButton = YES; // Show action button to allow sharing, copying, etc (defaults to YES)
+    browser.displaySelectionButtons = NO; // Whether selection buttons are shown on each image (defaults to NO)
+    browser.zoomPhotosToFill = YES; // Images that almost fill the screen will be initially zoomed to fill (defaults to YES)
+    browser.alwaysShowControls = NO; // Allows to control whether the bars and controls are always visible or whether they fade away to show the photo full (defaults to NO)
+    // Optionally set the current visible photo before displaying
+    [browser setCurrentPhotoIndex:indexPath.row];
+    
+    // Present
+    [self.navigationController pushViewController:browser animated:YES];
+}
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return _photos.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < _photos.count) {
+        return [_photos objectAtIndex:index];
+    }
+    return nil;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

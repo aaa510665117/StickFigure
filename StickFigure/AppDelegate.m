@@ -20,6 +20,15 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+        
+    //导航栏文字
+    NSMutableDictionary *titleattributes = [[NSMutableDictionary alloc]init];
+    //定制title字体
+    [titleattributes setValue:[UIFont boldSystemFontOfSize:19] forKey:NSFontAttributeName];
+    //定制title颜色
+    [titleattributes setValue:[UIColor blackColor] forKey:NSForegroundColorAttributeName];
+    [UINavigationBar appearance].titleTextAttributes = titleattributes;
+    
     [self.window makeKeyAndVisible];
     
     UINavigationController * mainNav = [[UINavigationController alloc]init];
@@ -27,6 +36,8 @@
     [mainNav pushViewController:_manViewConTroller animated:NO];
     self.window.rootViewController = mainNav;
     return YES;
+    
+
 }
 
 

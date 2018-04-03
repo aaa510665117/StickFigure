@@ -9,6 +9,7 @@ target ‘StickFigure' do
   pod 'ZYModule'
   pod 'SDWebImage','~> 3.8.1'
   pod 'HMSegmentedControl'
+  pod 'MWPhotoBrowser'
 
 end
 

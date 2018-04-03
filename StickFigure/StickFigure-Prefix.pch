@@ -11,6 +11,8 @@
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "HMSegmentedControl.h"
+#import "MWPhotoBrowser.h"
+#import "ZYToolsFunction.h"
 
 //#define Service_Local  @"http://192.168.20.32/StickFigure/"
 #define Service_Local @"https://stickfigure-1-1253886669.cos.ap-beijing.myqcloud.com/StickFigure/"
