@@ -178,6 +178,9 @@
         case 0:
         {
             [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]]];
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-2.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]]];
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-3.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]]];
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-4.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]]];
         }
             break;
         case 1:
