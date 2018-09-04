@@ -34,7 +34,7 @@ enum _auto_login_cs_mode {
 
 #define HTTP_RETURN_KEY         @"code"                 //服务器返回Key关键字
 #define HTTP_RETURN_MSG         @"message"              //服务器返回状态码内容
-#define HTTP_RETURN_RESULT      @"data"                 //服务器返回json体Key关键字
+#define HTTP_RETURN_RESULT      @"result"                 //服务器返回json体Key关键字
 
 //-----------------------------------------服务器配置部分end------------------------------------------------//
 

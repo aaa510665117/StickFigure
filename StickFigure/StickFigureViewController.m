@@ -82,8 +82,8 @@
     [[ZYHttpAPI sharedUpDownAPI]requestGetOrdinary:@"GetPhotoLink" withParams:nil withSuccess:^(NSDictionary *success) {
         
         __weak typeof(self) vc = self;
-        NSArray * result = (NSArray *)success;
-        [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSMutableArray * dic = [success objectForKey:HTTP_RETURN_RESULT];
+        [dic enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSDictionary * dic = obj;
             if(idx == 0)vc.animalAry = [dic objectForKey:@"animal"];
             if(idx == 1)vc.fruitsAry = [dic objectForKey:@"fruits"];
