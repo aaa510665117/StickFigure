@@ -11,14 +11,15 @@
 @interface StickFigureViewController ()
 {
     NSArray * choseTypeAry;
-    long animalImgCount;
-    long fruitsImgCount;
-    long vegetablesImgCount;
-    long cartoonImgCount;
-    long vehicleImgCount;
+    BOOL isViewDidAppear;
 }
 @property(nonatomic, assign) long choseTypeIndex;
 @property (nonatomic, strong)HMSegmentedControl *mySegment;
+@property (nonatomic, strong) NSMutableArray * animalAry;
+@property (nonatomic, strong) NSMutableArray * fruitsAry;
+@property (nonatomic, strong) NSMutableArray * vegetablesAry;
+@property (nonatomic, strong) NSMutableArray * cartoonAry;
+@property (nonatomic, strong) NSMutableArray * vehicleAry;
 @property (nonatomic, strong) NSMutableArray * photos;      //用于查看大图
 
 @end
@@ -41,18 +42,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"扬哥带你简笔画";
-//    choseTypeAry = @[@"动物",@"水果",@"蔬菜",@"植物",@"交通工具"];
+    self.title = @"带你简笔画";
     choseTypeAry = @[@"动物",@"水果",@"蔬菜",@"动漫",@"交通工具"];
-    animalImgCount = 21;
-    fruitsImgCount = 15;
-    vegetablesImgCount = 13;
-    cartoonImgCount =15;
-    vehicleImgCount = 15;
-
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"上传" style:UIBarButtonItemStylePlain target:self action:@selector(draw)];
-//    [UINavigationBar appearance].tintColor = [UIColor darkGrayColor];
-
+    isViewDidAppear = NO;
     _choseTypeIndex = 0;
     
     __weak typeof(self) weakSelf = self;
@@ -76,14 +68,34 @@
 //    [[SDImageCache sharedImageCache] clearDisk];  //清除缓存
 }
 
--(void)viewWillAppear:(BOOL)animated
+-(void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
+    if(isViewDidAppear == NO){
+        isViewDidAppear = YES;
+        [self getphotoAry];
+    }
 }
 
--(void)draw
+-(void)getphotoAry
 {
-    
+    [[ZYHttpAPI sharedUpDownAPI]requestGetOrdinary:@"GetPhotoLink" withParams:nil withSuccess:^(NSDictionary *success) {
+        
+        __weak typeof(self) vc = self;
+        NSArray * result = (NSArray *)success;
+        [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSDictionary * dic = obj;
+            if(idx == 0)vc.animalAry = [dic objectForKey:@"animal"];
+            if(idx == 1)vc.fruitsAry = [dic objectForKey:@"fruits"];
+            if(idx == 2)vc.vegetablesAry = [dic objectForKey:@"vegetables"];
+            if(idx == 3)vc.cartoonAry = [dic objectForKey:@"cartoon"];
+            if(idx == 4)vc.vehicleAry = [dic objectForKey:@"Vehicle"];
+            [vc.showImgCollectionView reloadData];
+        }];
+        
+    } withFailure:^(NSDictionary *failure) {
+        
+    }];
 }
 
 #pragma collectionView--Delegate
@@ -104,33 +116,33 @@
     switch (_choseTypeIndex) {
         case 0:
         {
-            return animalImgCount;
+            return _animalAry.count;
         }
             break;
         case 1:
         {
-            return fruitsImgCount;
+            return _fruitsAry.count;
         }
             break;
         case 2:
         {
-            return vegetablesImgCount;
+            return _vegetablesAry.count;
         }
             break;
         case 3:
         {
-            return cartoonImgCount;
+            return _cartoonAry.count;
         }
             break;
         case 4:
         {
-            return vehicleImgCount;
+            return _vegetablesAry.count;
         }
             break;
         default:
             break;
     }
-    return animalImgCount;
+    return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -140,31 +152,33 @@
     switch (_choseTypeIndex) {
         case 0:
         {
-            [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]];
+//            [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]];
+            [cell.stickImg sd_setImageWithURL:[_animalAry objectAtIndex:indexPath.row]];
+
         }
             break;
         case 1:
         {
-            [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Fruits/",indexPath.row+1,indexPath.row+1]]];
+//            [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Fruits/",indexPath.row+1,indexPath.row+1]]];
+            [cell.stickImg sd_setImageWithURL:[_fruitsAry objectAtIndex:indexPath.row]];
         }
             break;
         case 2:
         {
-            [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Vegetables/",indexPath.row+1,indexPath.row+1]]];
+            [cell.stickImg sd_setImageWithURL:[_vegetablesAry objectAtIndex:indexPath.row]];
         }
             break;
         case 3:
         {
-            [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Cartoon/",indexPath.row+1,indexPath.row+1]]];
+            [cell.stickImg sd_setImageWithURL:[_cartoonAry objectAtIndex:indexPath.row]];
         }
             break;
         case 4:
         {
-            [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Vehicle/",indexPath.row+1,indexPath.row+1]]];
+            [cell.stickImg sd_setImageWithURL:[_vehicleAry objectAtIndex:indexPath.row]];
         }
             break;
         default:
-            [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]];
             break;
     }
     
@@ -177,38 +191,33 @@
     switch (_choseTypeIndex) {
         case 0:
         {
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]]];
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-2.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]]];
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-3.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]]];
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-4.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]]];
+//            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]]];
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[_animalAry objectAtIndex:indexPath.row]]]];
         }
             break;
         case 1:
         {
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Fruits/",indexPath.row+1,indexPath.row+1]]]];
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[_fruitsAry objectAtIndex:indexPath.row]]]];
         }
             break;
         case 2:
         {
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Vegetables/",indexPath.row+1,indexPath.row+1]]]];
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[_vegetablesAry objectAtIndex:indexPath.row]]]];
         }
             break;
         case 3:
         {
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Cartoon/",indexPath.row+1,indexPath.row+1]]]];
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[_cartoonAry objectAtIndex:indexPath.row]]]];
         }
             break;
         case 4:
         {
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Vehicle/",indexPath.row+1,indexPath.row+1]]]];
+            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[_vehicleAry objectAtIndex:indexPath.row]]]];
         }
             break;
         default:
-            
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]]];
             break;
     }
-    
         
     // Create browser (must be done each time photo browser is
     // displayed. Photo browser objects cannot be re-used)

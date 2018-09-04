@@ -10,6 +10,7 @@ target ‘StickFigure' do
   pod 'SDWebImage','~> 3.8.1'
   pod 'HMSegmentedControl'
   pod 'MWPhotoBrowser'
+  pod 'AFNetworking'
 
 end
 

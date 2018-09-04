@@ -14,5 +14,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) StickFigureViewController * manViewConTroller;
 
++ (AppDelegate *)appDelegate;
+
 @end
 

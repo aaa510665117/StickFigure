@@ -17,6 +17,8 @@
 		1AE7FD511F18BDDE002666DA /* StickFigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD501F18BDDE002666DA /* StickFigureViewController.m */; };
 		1AE7FD551F18C051002666DA /* ChoseTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD541F18C051002666DA /* ChoseTypeTableViewCell.m */; };
 		1AE7FD581F18C46C002666DA /* StickTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD571F18C46C002666DA /* StickTypeCollectionViewCell.m */; };
+		DE83A245213E117400DC887D /* SEUpDownAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83A240213E117400DC887D /* SEUpDownAPI.m */; };
+		DE83A246213E117400DC887D /* ZYHttpAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83A241213E117400DC887D /* ZYHttpAPI.m */; };
 		E45D1CD1C5B626F1892B6610 /* libPods-StickFigure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF896D53A54B131D97C11D1 /* libPods-StickFigure.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,11 @@
 		3DF896D53A54B131D97C11D1 /* libPods-StickFigure.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StickFigure.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		498D707326E41C64291E0639 /* Pods-StickFigure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StickFigure.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StickFigure/Pods-StickFigure.debug.xcconfig"; sourceTree = "<group>"; };
 		800C73853689F6A2CD59C59E /* Pods-StickFigure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StickFigure.release.xcconfig"; path = "Pods/Target Support Files/Pods-StickFigure/Pods-StickFigure.release.xcconfig"; sourceTree = "<group>"; };
+		DE83A240213E117400DC887D /* SEUpDownAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEUpDownAPI.m; sourceTree = "<group>"; };
+		DE83A241213E117400DC887D /* ZYHttpAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYHttpAPI.m; sourceTree = "<group>"; };
+		DE83A242213E117400DC887D /* SEUpDownAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEUpDownAPI.h; sourceTree = "<group>"; };
+		DE83A243213E117400DC887D /* HttpConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConfig.h; sourceTree = "<group>"; };
+		DE83A244213E117400DC887D /* ZYHttpAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYHttpAPI.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +122,7 @@
 		1AE7FD191F18B466002666DA /* StickFigure */ = {
 			isa = PBXGroup;
 			children = (
+				DE83A23E213E112300DC887D /* Module */,
 				1AE7FD521F18C02E002666DA /* View */,
 				1AE7FD1D1F18B466002666DA /* AppDelegate.h */,
 				1AE7FD1E1F18B466002666DA /* AppDelegate.m */,
@@ -184,6 +192,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DE83A23E213E112300DC887D /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				DE83A23F213E117400DC887D /* ZYHttp */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		DE83A23F213E117400DC887D /* ZYHttp */ = {
+			isa = PBXGroup;
+			children = (
+				DE83A240213E117400DC887D /* SEUpDownAPI.m */,
+				DE83A241213E117400DC887D /* ZYHttpAPI.m */,
+				DE83A242213E117400DC887D /* SEUpDownAPI.h */,
+				DE83A243213E117400DC887D /* HttpConfig.h */,
+				DE83A244213E117400DC887D /* ZYHttpAPI.h */,
+			);
+			path = ZYHttp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,7 +223,6 @@
 				1AE7FD131F18B466002666DA /* Sources */,
 				1AE7FD141F18B466002666DA /* Frameworks */,
 				1AE7FD151F18B466002666DA /* Resources */,
-				198A949C353CB407FF3D9CE4 /* [CP] Embed Pods Frameworks */,
 				6D41B439E47566E38409FD30 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -319,21 +346,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		198A949C353CB407FF3D9CE4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StickFigure/Pods-StickFigure-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		240073725C06B5BA78C7E966 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -360,11 +372,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StickFigure/Pods-StickFigure-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MWPhotoBrowser.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -378,7 +391,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE83A246213E117400DC887D /* ZYHttpAPI.m in Sources */,
 				1AE7FD511F18BDDE002666DA /* StickFigureViewController.m in Sources */,
+				DE83A245213E117400DC887D /* SEUpDownAPI.m in Sources */,
 				1AE7FD1F1F18B466002666DA /* AppDelegate.m in Sources */,
 				1AE7FD581F18C46C002666DA /* StickTypeCollectionViewCell.m in Sources */,
 				1AE7FD551F18C051002666DA /* ChoseTypeTableViewCell.m in Sources */,
