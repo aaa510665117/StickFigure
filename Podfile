@@ -11,6 +11,7 @@ target ‘StickFigure' do
   pod 'HMSegmentedControl'
   pod 'MWPhotoBrowser'
   pod 'AFNetworking'
+  pod 'UMCAnalytics'
 
 end
 

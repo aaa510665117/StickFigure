@@ -35,11 +35,17 @@
     _manViewConTroller = [[StickFigureViewController alloc]init];
     [mainNav pushViewController:_manViewConTroller animated:NO];
     self.window.rootViewController = mainNav;
-    return YES;
     
-
+    [self initData];
+    return YES;
 }
 
+-(void)initData
+{
+    [UMConfigure initWithAppkey:Umeng_APPKey channel:@"App Store"];
+    // 统计组件配置
+    [MobClick setScenarioType:E_UM_NORMAL];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

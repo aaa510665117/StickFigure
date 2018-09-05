@@ -69,6 +69,7 @@
 		DE83A242213E117400DC887D /* SEUpDownAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEUpDownAPI.h; sourceTree = "<group>"; };
 		DE83A243213E117400DC887D /* HttpConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConfig.h; sourceTree = "<group>"; };
 		DE83A244213E117400DC887D /* ZYHttpAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYHttpAPI.h; sourceTree = "<group>"; };
+		DE8603A5213F7C7600A20131 /* Definition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +143,7 @@
 			children = (
 				1AE7FD1B1F18B466002666DA /* main.m */,
 				1A3EB24E206DD860005822C2 /* StickFigure-Prefix.pch */,
+				DE8603A5213F7C7600A20131 /* Definition.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

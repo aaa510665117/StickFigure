@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "StickFigureViewController.h"
+#import <UMCommon/UMCommon.h> 
+#import <UMAnalytics/MobClick.h>        // 统计组件
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

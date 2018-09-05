@@ -9,6 +9,7 @@
 #ifndef StickFigure_Prefix_pch
 #define StickFigure_Prefix_pch
 
+#import "Definition.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "HMSegmentedControl.h"
 #import "MWPhotoBrowser.h"

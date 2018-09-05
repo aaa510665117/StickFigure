@@ -25,6 +25,9 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - UMCAnalytics (5.5.0):
+    - UMCCommon
+  - UMCCommon (1.5.2)
   - ZYModule (1.0.3):
     - ZYModule/DiyMJRefresh (= 1.0.3)
     - ZYModule/SEHttp (= 1.0.3)
@@ -41,6 +44,7 @@ DEPENDENCIES:
   - HMSegmentedControl
   - MWPhotoBrowser
   - SDWebImage (~> 3.8.1)
+  - UMCAnalytics
   - ZYModule
 
 SPEC REPOS:
@@ -52,6 +56,8 @@ SPEC REPOS:
     - MJRefresh
     - MWPhotoBrowser
     - SDWebImage
+    - UMCAnalytics
+    - UMCCommon
     - ZYModule
 
 SPEC CHECKSUMS:
@@ -62,8 +68,10 @@ SPEC CHECKSUMS:
   MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  UMCAnalytics: 4667788559a72f2fa5077117d1b8802a3b6eb6bb
+  UMCCommon: 4392868ac47ff1b101663106bb114ba616fabbad
   ZYModule: 81a99659b047d8123a847e449c666c3255cb36d4
 
-PODFILE CHECKSUM: 05ea9fb38f89ee3cdde5f046af165d6b133bf1f4
+PODFILE CHECKSUM: ecaffcdf5b86ad9c9baf9fe5aca576ccfb414dc2
 
 COCOAPODS: 1.5.3
