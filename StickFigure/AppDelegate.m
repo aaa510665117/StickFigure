@@ -17,34 +17,43 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-        
-    //导航栏文字
-    NSMutableDictionary *titleattributes = [[NSMutableDictionary alloc]init];
-    //定制title字体
-    [titleattributes setValue:[UIFont boldSystemFontOfSize:19] forKey:NSFontAttributeName];
-    //定制title颜色
-    [titleattributes setValue:[UIColor blackColor] forKey:NSForegroundColorAttributeName];
-    [UINavigationBar appearance].titleTextAttributes = titleattributes;
     
-    [self.window makeKeyAndVisible];
+    //load App
+    [self launchApp:launchOptions];
+
+    //三方库
+    [self initTripartite];
     
-    UINavigationController * mainNav = [[UINavigationController alloc]init];
-    _manViewConTroller = [[StickFigureViewController alloc]init];
-    [mainNav pushViewController:_manViewConTroller animated:NO];
-    self.window.rootViewController = mainNav;
-    
-    [self initData];
     return YES;
 }
 
--(void)initData
+-(void)initTripartite
 {
     [UMConfigure initWithAppkey:Umeng_APPKey channel:@"App Store"];
     // 统计组件配置
     [MobClick setScenarioType:E_UM_NORMAL];
+}
+
+- (void)launchApp:(NSDictionary *)launchOptions{
+    
+    [self showMainTabNav];
+}
+
+//主TabBar
+-(void)showMainTabNav
+{
+    _mainTabBarController = [[RootTabBarViewController alloc] init];
+    self.window.rootViewController = self.mainTabBarController;
+    [self.window makeKeyAndVisible];
+}
+
+- (UIWindow *)window
+{
+    if (!_window) {
+        _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        _window.backgroundColor = [UIColor whiteColor];
+    }
+    return _window;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

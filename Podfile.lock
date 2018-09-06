@@ -14,64 +14,62 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - CYLTabBarController (1.17.16)
   - DACircularProgress (2.3.1)
   - HMSegmentedControl (1.5.5)
   - MBProgressHUD (0.9.2)
-  - MJRefresh (3.1.15.6)
   - MWPhotoBrowser (2.1.2):
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
     - "SDWebImage (!= 3.7.2, ~> 3.7)"
+  - RTRootNavigationController (0.6.7):
+    - RTRootNavigationController/Core (= 0.6.7)
+  - RTRootNavigationController/Core (0.6.7)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - SVProgressHUD (2.2.5)
   - UMCAnalytics (5.5.0):
     - UMCCommon
   - UMCCommon (1.5.2)
-  - ZYModule (1.0.3):
-    - ZYModule/DiyMJRefresh (= 1.0.3)
-    - ZYModule/SEHttp (= 1.0.3)
-    - ZYModule/ZYExtenClass (= 1.0.3)
-    - ZYModule/ZYToolsFunction (= 1.0.3)
-  - ZYModule/DiyMJRefresh (1.0.3):
-    - MJRefresh
-  - ZYModule/SEHttp (1.0.3)
-  - ZYModule/ZYExtenClass (1.0.3)
-  - ZYModule/ZYToolsFunction (1.0.3)
 
 DEPENDENCIES:
   - AFNetworking
+  - CYLTabBarController
   - HMSegmentedControl
   - MWPhotoBrowser
+  - RTRootNavigationController
   - SDWebImage (~> 3.8.1)
+  - SVProgressHUD
   - UMCAnalytics
-  - ZYModule
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - CYLTabBarController
     - DACircularProgress
     - HMSegmentedControl
     - MBProgressHUD
-    - MJRefresh
     - MWPhotoBrowser
+    - RTRootNavigationController
     - SDWebImage
+    - SVProgressHUD
     - UMCAnalytics
     - UMCCommon
-    - ZYModule
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  CYLTabBarController: fb72c648645336953d522407892c4f61b7b3f898
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   HMSegmentedControl: f514c6dad47aa3065e0ed2e8046b73efc71221b9
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
+  RTRootNavigationController: d6aa6cbb78a3eaecea4f6e4df63f15dd887836b8
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UMCAnalytics: 4667788559a72f2fa5077117d1b8802a3b6eb6bb
   UMCCommon: 4392868ac47ff1b101663106bb114ba616fabbad
-  ZYModule: 81a99659b047d8123a847e449c666c3255cb36d4
 
-PODFILE CHECKSUM: ecaffcdf5b86ad9c9baf9fe5aca576ccfb414dc2
+PODFILE CHECKSUM: 5dd8c65ba6a0f694ff6809576d85cfac401b0c4c
 
 COCOAPODS: 1.5.3

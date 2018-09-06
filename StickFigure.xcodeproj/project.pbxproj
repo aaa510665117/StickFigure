@@ -19,6 +19,30 @@
 		1AE7FD581F18C46C002666DA /* StickTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD571F18C46C002666DA /* StickTypeCollectionViewCell.m */; };
 		DE83A245213E117400DC887D /* SEUpDownAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83A240213E117400DC887D /* SEUpDownAPI.m */; };
 		DE83A246213E117400DC887D /* ZYHttpAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83A241213E117400DC887D /* ZYHttpAPI.m */; };
+		DEEF62152140F262003ECBB5 /* CYLPlusButtonSubclass.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62142140F262003ECBB5 /* CYLPlusButtonSubclass.m */; };
+		DEEF621D2140F350003ECBB5 /* RootNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62172140F350003ECBB5 /* RootNavigationViewController.m */; };
+		DEEF621E2140F350003ECBB5 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62182140F350003ECBB5 /* RootViewController.m */; };
+		DEEF621F2140F350003ECBB5 /* RootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62192140F350003ECBB5 /* RootTabBarViewController.m */; };
+		DEEF62362140F4B8003ECBB5 /* NSString+Code.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62222140F4B6003ECBB5 /* NSString+Code.m */; };
+		DEEF62372140F4B8003ECBB5 /* CALayer+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62232140F4B6003ECBB5 /* CALayer+Additions.m */; };
+		DEEF62382140F4B8003ECBB5 /* UIViewController+ColorState.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62242140F4B6003ECBB5 /* UIViewController+ColorState.m */; };
+		DEEF62392140F4B8003ECBB5 /* NSObject+ObjectMap.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62292140F4B7003ECBB5 /* NSObject+ObjectMap.m */; };
+		DEEF623A2140F4B8003ECBB5 /* UIColor+App.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF622B2140F4B7003ECBB5 /* UIColor+App.m */; };
+		DEEF623B2140F4B8003ECBB5 /* UIImage+Blur.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF622E2140F4B7003ECBB5 /* UIImage+Blur.m */; };
+		DEEF623C2140F4B8003ECBB5 /* UIImageView+ImageDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF622F2140F4B8003ECBB5 /* UIImageView+ImageDefault.m */; };
+		DEEF623E2140F4B8003ECBB5 /* NSDictionary+Accessors.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62342140F4B8003ECBB5 /* NSDictionary+Accessors.m */; };
+		DEEF623F2140F4B8003ECBB5 /* NSString+FilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62352140F4B8003ECBB5 /* NSString+FilePath.m */; };
+		DEEF62432140F4EC003ECBB5 /* ToolsFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62412140F4EC003ECBB5 /* ToolsFunction.m */; };
+		DEEF62492140FB91003ECBB5 /* MySB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEEF62472140FB91003ECBB5 /* MySB.storyboard */; };
+		DEEF624A2140FB91003ECBB5 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62482140FB91003ECBB5 /* MyViewController.m */; };
+		DEEF624E21411802003ECBB5 /* PaintingSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEEF624D21411802003ECBB5 /* PaintingSB.storyboard */; };
+		DEEF625121411812003ECBB5 /* PaintingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF625021411812003ECBB5 /* PaintingViewController.m */; };
+		DEEF6255214123A3003ECBB5 /* ColorBoxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF6254214123A3003ECBB5 /* ColorBoxModel.m */; };
+		DEEF625A21412E14003ECBB5 /* HBDrawingBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF625921412E13003ECBB5 /* HBDrawingBoard.m */; };
+		DEEF625D21412E8B003ECBB5 /* HBDrawModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF625B21412E8B003ECBB5 /* HBDrawModel.m */; };
+		DEEF626021412EBC003ECBB5 /* HBDrawPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF625F21412EBC003ECBB5 /* HBDrawPoint.m */; };
+		DEEF626321412F34003ECBB5 /* HBDrawCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF626121412F33003ECBB5 /* HBDrawCommon.m */; };
+		DEEF626621413321003ECBB5 /* NSFileManager+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF626521413321003ECBB5 /* NSFileManager+Helper.m */; };
 		E45D1CD1C5B626F1892B6610 /* libPods-StickFigure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF896D53A54B131D97C11D1 /* libPods-StickFigure.a */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +94,52 @@
 		DE83A243213E117400DC887D /* HttpConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConfig.h; sourceTree = "<group>"; };
 		DE83A244213E117400DC887D /* ZYHttpAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYHttpAPI.h; sourceTree = "<group>"; };
 		DE8603A5213F7C7600A20131 /* Definition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
+		DEEF62132140F262003ECBB5 /* CYLPlusButtonSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLPlusButtonSubclass.h; sourceTree = "<group>"; };
+		DEEF62142140F262003ECBB5 /* CYLPlusButtonSubclass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLPlusButtonSubclass.m; sourceTree = "<group>"; };
+		DEEF62172140F350003ECBB5 /* RootNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationViewController.m; sourceTree = "<group>"; };
+		DEEF62182140F350003ECBB5 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		DEEF62192140F350003ECBB5 /* RootTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarViewController.m; sourceTree = "<group>"; };
+		DEEF621A2140F350003ECBB5 /* RootNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNavigationViewController.h; sourceTree = "<group>"; };
+		DEEF621B2140F350003ECBB5 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		DEEF621C2140F350003ECBB5 /* RootTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarViewController.h; sourceTree = "<group>"; };
+		DEEF62222140F4B6003ECBB5 /* NSString+Code.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Code.m"; sourceTree = "<group>"; };
+		DEEF62232140F4B6003ECBB5 /* CALayer+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Additions.m"; sourceTree = "<group>"; };
+		DEEF62242140F4B6003ECBB5 /* UIViewController+ColorState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ColorState.m"; sourceTree = "<group>"; };
+		DEEF62252140F4B6003ECBB5 /* CALayer+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Additions.h"; sourceTree = "<group>"; };
+		DEEF62262140F4B6003ECBB5 /* UIImageView+ImageDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ImageDefault.h"; sourceTree = "<group>"; };
+		DEEF62272140F4B7003ECBB5 /* NSDictionary+Accessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Accessors.h"; sourceTree = "<group>"; };
+		DEEF62282140F4B7003ECBB5 /* NSObject+ObjectMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ObjectMap.h"; sourceTree = "<group>"; };
+		DEEF62292140F4B7003ECBB5 /* NSObject+ObjectMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ObjectMap.m"; sourceTree = "<group>"; };
+		DEEF622A2140F4B7003ECBB5 /* NSString+Code.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Code.h"; sourceTree = "<group>"; };
+		DEEF622B2140F4B7003ECBB5 /* UIColor+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+App.m"; sourceTree = "<group>"; };
+		DEEF622C2140F4B7003ECBB5 /* NSString+FilePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FilePath.h"; sourceTree = "<group>"; };
+		DEEF622D2140F4B7003ECBB5 /* UIImage+Blur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blur.h"; sourceTree = "<group>"; };
+		DEEF622E2140F4B7003ECBB5 /* UIImage+Blur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Blur.m"; sourceTree = "<group>"; };
+		DEEF622F2140F4B8003ECBB5 /* UIImageView+ImageDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ImageDefault.m"; sourceTree = "<group>"; };
+		DEEF62322140F4B8003ECBB5 /* UIViewController+ColorState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ColorState.h"; sourceTree = "<group>"; };
+		DEEF62332140F4B8003ECBB5 /* UIColor+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+App.h"; sourceTree = "<group>"; };
+		DEEF62342140F4B8003ECBB5 /* NSDictionary+Accessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Accessors.m"; sourceTree = "<group>"; };
+		DEEF62352140F4B8003ECBB5 /* NSString+FilePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FilePath.m"; sourceTree = "<group>"; };
+		DEEF62412140F4EC003ECBB5 /* ToolsFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolsFunction.m; sourceTree = "<group>"; };
+		DEEF62422140F4EC003ECBB5 /* ToolsFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsFunction.h; sourceTree = "<group>"; };
+		DEEF62462140FB91003ECBB5 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		DEEF62472140FB91003ECBB5 /* MySB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MySB.storyboard; sourceTree = "<group>"; };
+		DEEF62482140FB91003ECBB5 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		DEEF624D21411802003ECBB5 /* PaintingSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaintingSB.storyboard; sourceTree = "<group>"; };
+		DEEF624F21411812003ECBB5 /* PaintingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaintingViewController.h; sourceTree = "<group>"; };
+		DEEF625021411812003ECBB5 /* PaintingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaintingViewController.m; sourceTree = "<group>"; };
+		DEEF6253214123A3003ECBB5 /* ColorBoxModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorBoxModel.h; sourceTree = "<group>"; };
+		DEEF6254214123A3003ECBB5 /* ColorBoxModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorBoxModel.m; sourceTree = "<group>"; };
+		DEEF625821412E13003ECBB5 /* HBDrawingBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBDrawingBoard.h; sourceTree = "<group>"; };
+		DEEF625921412E13003ECBB5 /* HBDrawingBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBDrawingBoard.m; sourceTree = "<group>"; };
+		DEEF625B21412E8B003ECBB5 /* HBDrawModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBDrawModel.m; sourceTree = "<group>"; };
+		DEEF625C21412E8B003ECBB5 /* HBDrawModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBDrawModel.h; sourceTree = "<group>"; };
+		DEEF625E21412EBC003ECBB5 /* HBDrawPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBDrawPoint.h; sourceTree = "<group>"; };
+		DEEF625F21412EBC003ECBB5 /* HBDrawPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBDrawPoint.m; sourceTree = "<group>"; };
+		DEEF626121412F33003ECBB5 /* HBDrawCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBDrawCommon.m; sourceTree = "<group>"; };
+		DEEF626221412F34003ECBB5 /* HBDrawCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBDrawCommon.h; sourceTree = "<group>"; };
+		DEEF626421413321003ECBB5 /* NSFileManager+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Helper.h"; sourceTree = "<group>"; };
+		DEEF626521413321003ECBB5 /* NSFileManager+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Helper.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,17 +193,15 @@
 		1AE7FD191F18B466002666DA /* StickFigure */ = {
 			isa = PBXGroup;
 			children = (
+				DEEF62442140FB86003ECBB5 /* Class */,
+				DEEF62112140F248003ECBB5 /* Unility */,
 				DE83A23E213E112300DC887D /* Module */,
-				1AE7FD521F18C02E002666DA /* View */,
 				1AE7FD1D1F18B466002666DA /* AppDelegate.h */,
 				1AE7FD1E1F18B466002666DA /* AppDelegate.m */,
 				1AE7FD261F18B466002666DA /* Assets.xcassets */,
 				1AE7FD281F18B466002666DA /* LaunchScreen.storyboard */,
 				1AE7FD2B1F18B466002666DA /* Info.plist */,
 				1AE7FD1A1F18B466002666DA /* Supporting Files */,
-				1AE7FD4D1F18BDC2002666DA /* StickFigure.storyboard */,
-				1AE7FD4F1F18BDDE002666DA /* StickFigureViewController.h */,
-				1AE7FD501F18BDDE002666DA /* StickFigureViewController.m */,
 			);
 			path = StickFigure;
 			sourceTree = "<group>";
@@ -175,6 +243,7 @@
 				1AE7FD571F18C46C002666DA /* StickTypeCollectionViewCell.m */,
 			);
 			name = View;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		768C43CD40C7E6238F518C0C /* Pods */ = {
@@ -197,6 +266,8 @@
 		DE83A23E213E112300DC887D /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				DEEF62402140F4D3003ECBB5 /* ToolsFunction */,
+				DEEF62212140F489003ECBB5 /* ExternClass */,
 				DE83A23F213E117400DC887D /* ZYHttp */,
 			);
 			path = Module;
@@ -212,6 +283,148 @@
 				DE83A244213E117400DC887D /* ZYHttpAPI.h */,
 			);
 			path = ZYHttp;
+			sourceTree = "<group>";
+		};
+		DEEF62112140F248003ECBB5 /* Unility */ = {
+			isa = PBXGroup;
+			children = (
+				DEEF62162140F350003ECBB5 /* RootController */,
+				DEEF62122140F262003ECBB5 /* CYLPlusButtonSubclass */,
+			);
+			path = Unility;
+			sourceTree = "<group>";
+		};
+		DEEF62122140F262003ECBB5 /* CYLPlusButtonSubclass */ = {
+			isa = PBXGroup;
+			children = (
+				DEEF62132140F262003ECBB5 /* CYLPlusButtonSubclass.h */,
+				DEEF62142140F262003ECBB5 /* CYLPlusButtonSubclass.m */,
+			);
+			path = CYLPlusButtonSubclass;
+			sourceTree = "<group>";
+		};
+		DEEF62162140F350003ECBB5 /* RootController */ = {
+			isa = PBXGroup;
+			children = (
+				DEEF62172140F350003ECBB5 /* RootNavigationViewController.m */,
+				DEEF62182140F350003ECBB5 /* RootViewController.m */,
+				DEEF62192140F350003ECBB5 /* RootTabBarViewController.m */,
+				DEEF621A2140F350003ECBB5 /* RootNavigationViewController.h */,
+				DEEF621B2140F350003ECBB5 /* RootViewController.h */,
+				DEEF621C2140F350003ECBB5 /* RootTabBarViewController.h */,
+			);
+			path = RootController;
+			sourceTree = "<group>";
+		};
+		DEEF62212140F489003ECBB5 /* ExternClass */ = {
+			isa = PBXGroup;
+			children = (
+				DEEF626421413321003ECBB5 /* NSFileManager+Helper.h */,
+				DEEF626521413321003ECBB5 /* NSFileManager+Helper.m */,
+				DEEF62252140F4B6003ECBB5 /* CALayer+Additions.h */,
+				DEEF62232140F4B6003ECBB5 /* CALayer+Additions.m */,
+				DEEF62272140F4B7003ECBB5 /* NSDictionary+Accessors.h */,
+				DEEF62342140F4B8003ECBB5 /* NSDictionary+Accessors.m */,
+				DEEF62282140F4B7003ECBB5 /* NSObject+ObjectMap.h */,
+				DEEF62292140F4B7003ECBB5 /* NSObject+ObjectMap.m */,
+				DEEF622A2140F4B7003ECBB5 /* NSString+Code.h */,
+				DEEF62222140F4B6003ECBB5 /* NSString+Code.m */,
+				DEEF622C2140F4B7003ECBB5 /* NSString+FilePath.h */,
+				DEEF62352140F4B8003ECBB5 /* NSString+FilePath.m */,
+				DEEF62332140F4B8003ECBB5 /* UIColor+App.h */,
+				DEEF622B2140F4B7003ECBB5 /* UIColor+App.m */,
+				DEEF622D2140F4B7003ECBB5 /* UIImage+Blur.h */,
+				DEEF622E2140F4B7003ECBB5 /* UIImage+Blur.m */,
+				DEEF62262140F4B6003ECBB5 /* UIImageView+ImageDefault.h */,
+				DEEF622F2140F4B8003ECBB5 /* UIImageView+ImageDefault.m */,
+				DEEF62322140F4B8003ECBB5 /* UIViewController+ColorState.h */,
+				DEEF62242140F4B6003ECBB5 /* UIViewController+ColorState.m */,
+			);
+			path = ExternClass;
+			sourceTree = "<group>";
+		};
+		DEEF62402140F4D3003ECBB5 /* ToolsFunction */ = {
+			isa = PBXGroup;
+			children = (
+				DEEF62422140F4EC003ECBB5 /* ToolsFunction.h */,
+				DEEF62412140F4EC003ECBB5 /* ToolsFunction.m */,
+			);
+			path = ToolsFunction;
+			sourceTree = "<group>";
+		};
+		DEEF62442140FB86003ECBB5 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				DEEF624C214117D9003ECBB5 /* Painting */,
+				DEEF624B2140FDE8003ECBB5 /* StickFigure */,
+				DEEF62452140FB91003ECBB5 /* My */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		DEEF62452140FB91003ECBB5 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				DEEF62462140FB91003ECBB5 /* MyViewController.h */,
+				DEEF62472140FB91003ECBB5 /* MySB.storyboard */,
+				DEEF62482140FB91003ECBB5 /* MyViewController.m */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
+		DEEF624B2140FDE8003ECBB5 /* StickFigure */ = {
+			isa = PBXGroup;
+			children = (
+				1AE7FD521F18C02E002666DA /* View */,
+				1AE7FD4D1F18BDC2002666DA /* StickFigure.storyboard */,
+				1AE7FD4F1F18BDDE002666DA /* StickFigureViewController.h */,
+				1AE7FD501F18BDDE002666DA /* StickFigureViewController.m */,
+			);
+			path = StickFigure;
+			sourceTree = "<group>";
+		};
+		DEEF624C214117D9003ECBB5 /* Painting */ = {
+			isa = PBXGroup;
+			children = (
+				DEEF625621412E08003ECBB5 /* View */,
+				DEEF625221412366003ECBB5 /* Model */,
+				DEEF624D21411802003ECBB5 /* PaintingSB.storyboard */,
+				DEEF624F21411812003ECBB5 /* PaintingViewController.h */,
+				DEEF625021411812003ECBB5 /* PaintingViewController.m */,
+			);
+			path = Painting;
+			sourceTree = "<group>";
+		};
+		DEEF625221412366003ECBB5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEEF626221412F34003ECBB5 /* HBDrawCommon.h */,
+				DEEF626121412F33003ECBB5 /* HBDrawCommon.m */,
+				DEEF625E21412EBC003ECBB5 /* HBDrawPoint.h */,
+				DEEF625F21412EBC003ECBB5 /* HBDrawPoint.m */,
+				DEEF625C21412E8B003ECBB5 /* HBDrawModel.h */,
+				DEEF625B21412E8B003ECBB5 /* HBDrawModel.m */,
+				DEEF6253214123A3003ECBB5 /* ColorBoxModel.h */,
+				DEEF6254214123A3003ECBB5 /* ColorBoxModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DEEF625621412E08003ECBB5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEEF625721412E13003ECBB5 /* drawBoard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		DEEF625721412E13003ECBB5 /* drawBoard */ = {
+			isa = PBXGroup;
+			children = (
+				DEEF625821412E13003ECBB5 /* HBDrawingBoard.h */,
+				DEEF625921412E13003ECBB5 /* HBDrawingBoard.m */,
+			);
+			path = drawBoard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,7 +539,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AE7FD2A1F18B466002666DA /* LaunchScreen.storyboard in Resources */,
+				DEEF62492140FB91003ECBB5 /* MySB.storyboard in Resources */,
 				1AE7FD4E1F18BDC2002666DA /* StickFigure.storyboard in Resources */,
+				DEEF624E21411802003ECBB5 /* PaintingSB.storyboard in Resources */,
 				1AE7FD271F18B466002666DA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,13 +588,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StickFigure/Pods-StickFigure-resources.sh",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MWPhotoBrowser.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -393,12 +608,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEEF624A2140FB91003ECBB5 /* MyViewController.m in Sources */,
 				DE83A246213E117400DC887D /* ZYHttpAPI.m in Sources */,
+				DEEF623A2140F4B8003ECBB5 /* UIColor+App.m in Sources */,
 				1AE7FD511F18BDDE002666DA /* StickFigureViewController.m in Sources */,
+				DEEF62152140F262003ECBB5 /* CYLPlusButtonSubclass.m in Sources */,
 				DE83A245213E117400DC887D /* SEUpDownAPI.m in Sources */,
+				DEEF62382140F4B8003ECBB5 /* UIViewController+ColorState.m in Sources */,
+				DEEF62392140F4B8003ECBB5 /* NSObject+ObjectMap.m in Sources */,
+				DEEF62362140F4B8003ECBB5 /* NSString+Code.m in Sources */,
+				DEEF623B2140F4B8003ECBB5 /* UIImage+Blur.m in Sources */,
+				DEEF621E2140F350003ECBB5 /* RootViewController.m in Sources */,
+				DEEF6255214123A3003ECBB5 /* ColorBoxModel.m in Sources */,
+				DEEF625121411812003ECBB5 /* PaintingViewController.m in Sources */,
 				1AE7FD1F1F18B466002666DA /* AppDelegate.m in Sources */,
+				DEEF626321412F34003ECBB5 /* HBDrawCommon.m in Sources */,
 				1AE7FD581F18C46C002666DA /* StickTypeCollectionViewCell.m in Sources */,
+				DEEF621D2140F350003ECBB5 /* RootNavigationViewController.m in Sources */,
+				DEEF623F2140F4B8003ECBB5 /* NSString+FilePath.m in Sources */,
+				DEEF625D21412E8B003ECBB5 /* HBDrawModel.m in Sources */,
+				DEEF626021412EBC003ECBB5 /* HBDrawPoint.m in Sources */,
 				1AE7FD551F18C051002666DA /* ChoseTypeTableViewCell.m in Sources */,
+				DEEF62432140F4EC003ECBB5 /* ToolsFunction.m in Sources */,
+				DEEF623E2140F4B8003ECBB5 /* NSDictionary+Accessors.m in Sources */,
+				DEEF625A21412E14003ECBB5 /* HBDrawingBoard.m in Sources */,
+				DEEF621F2140F350003ECBB5 /* RootTabBarViewController.m in Sources */,
+				DEEF626621413321003ECBB5 /* NSFileManager+Helper.m in Sources */,
+				DEEF62372140F4B8003ECBB5 /* CALayer+Additions.m in Sources */,
+				DEEF623C2140F4B8003ECBB5 /* UIImageView+ImageDefault.m in Sources */,
 				1AE7FD1C1F18B466002666DA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AAB299E5726A1BE0AB7B335A18DE12CE"
+               BlueprintIdentifier = "C26A414AA56D9B07A1A5273A2C1AC087"
                BlueprintName = "Pods-StickFigure"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods-StickFigure.a">

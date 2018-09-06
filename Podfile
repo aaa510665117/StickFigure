@@ -6,12 +6,15 @@
 target ‘StickFigure' do
 
   inhibit_all_warnings!
-  pod 'ZYModule'
+#pod 'ZYModule'
   pod 'SDWebImage','~> 3.8.1'
   pod 'HMSegmentedControl'
   pod 'MWPhotoBrowser'
   pod 'AFNetworking'
   pod 'UMCAnalytics'
+  pod 'CYLTabBarController'
+  pod 'RTRootNavigationController'
+  pod 'SVProgressHUD'
 
 end
 

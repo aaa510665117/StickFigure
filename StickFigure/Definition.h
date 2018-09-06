@@ -8,7 +8,11 @@
 
 #ifndef Definition_h
 #define Definition_h
+#import <UIKit/UIKit.h>
 
 #define Umeng_APPKey @"5b8f418ef29d9827e6000061"
+
+UIKIT_EXTERN NSString * const SendColorAndWidthNotification;
+
 
 #endif /* Definition_h */
