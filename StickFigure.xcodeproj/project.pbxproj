@@ -28,6 +28,8 @@
 		DEA92B6A214253CE00D90F3B /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B69214253CE00D90F3B /* UserProfile.m */; };
 		DEA92B6E2142798F00D90F3B /* StickFigureImgObj.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B6D2142798F00D90F3B /* StickFigureImgObj.m */; };
 		DEA92B722142801700D90F3B /* DropDownMenuList.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B712142801700D90F3B /* DropDownMenuList.m */; };
+		DEDF672B2142BA4400B0F48B /* MyWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDF672A2142BA4400B0F48B /* MyWorkViewController.m */; };
+		DEDF672F2142C01800B0F48B /* MyWorkCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDF672E2142C01800B0F48B /* MyWorkCollectionViewCell.m */; };
 		DEEF62152140F262003ECBB5 /* CYLPlusButtonSubclass.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62142140F262003ECBB5 /* CYLPlusButtonSubclass.m */; };
 		DEEF621D2140F350003ECBB5 /* RootNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62172140F350003ECBB5 /* RootNavigationViewController.m */; };
 		DEEF621E2140F350003ECBB5 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62182140F350003ECBB5 /* RootViewController.m */; };
@@ -120,6 +122,10 @@
 		DEA92B6D2142798F00D90F3B /* StickFigureImgObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StickFigureImgObj.m; sourceTree = "<group>"; };
 		DEA92B702142801700D90F3B /* DropDownMenuList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownMenuList.h; sourceTree = "<group>"; };
 		DEA92B712142801700D90F3B /* DropDownMenuList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownMenuList.m; sourceTree = "<group>"; };
+		DEDF67292142BA4400B0F48B /* MyWorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWorkViewController.h; sourceTree = "<group>"; };
+		DEDF672A2142BA4400B0F48B /* MyWorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWorkViewController.m; sourceTree = "<group>"; };
+		DEDF672D2142C01800B0F48B /* MyWorkCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWorkCollectionViewCell.h; sourceTree = "<group>"; };
+		DEDF672E2142C01800B0F48B /* MyWorkCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWorkCollectionViewCell.m; sourceTree = "<group>"; };
 		DEEF62132140F262003ECBB5 /* CYLPlusButtonSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLPlusButtonSubclass.h; sourceTree = "<group>"; };
 		DEEF62142140F262003ECBB5 /* CYLPlusButtonSubclass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLPlusButtonSubclass.m; sourceTree = "<group>"; };
 		DEEF62172140F350003ECBB5 /* RootNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationViewController.m; sourceTree = "<group>"; };
@@ -353,6 +359,15 @@
 			path = DropDownMenuList;
 			sourceTree = "<group>";
 		};
+		DEDF672C2142C00000B0F48B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEDF672D2142C01800B0F48B /* MyWorkCollectionViewCell.h */,
+				DEDF672E2142C01800B0F48B /* MyWorkCollectionViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		DEEF62112140F248003ECBB5 /* Unility */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,9 +450,12 @@
 		DEEF62452140FB91003ECBB5 /* My */ = {
 			isa = PBXGroup;
 			children = (
+				DEDF672C2142C00000B0F48B /* View */,
 				DEEF62462140FB91003ECBB5 /* MyViewController.h */,
 				DEEF62472140FB91003ECBB5 /* MySB.storyboard */,
 				DEEF62482140FB91003ECBB5 /* MyViewController.m */,
+				DEDF67292142BA4400B0F48B /* MyWorkViewController.h */,
+				DEDF672A2142BA4400B0F48B /* MyWorkViewController.m */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -705,6 +723,7 @@
 				DEEF625121411812003ECBB5 /* PaintingViewController.m in Sources */,
 				1AE7FD1F1F18B466002666DA /* AppDelegate.m in Sources */,
 				DEEF626321412F34003ECBB5 /* HBDrawCommon.m in Sources */,
+				DEDF672B2142BA4400B0F48B /* MyWorkViewController.m in Sources */,
 				1AE7FD581F18C46C002666DA /* StickTypeCollectionViewCell.m in Sources */,
 				DEA92B5121421E4500D90F3B /* UpMyStickViewController.m in Sources */,
 				DEEF621D2140F350003ECBB5 /* RootNavigationViewController.m in Sources */,
@@ -712,6 +731,7 @@
 				DEEF625D21412E8B003ECBB5 /* HBDrawModel.m in Sources */,
 				DEA92B63214231A400D90F3B /* LoginManagerModel.m in Sources */,
 				DEEF626021412EBC003ECBB5 /* HBDrawPoint.m in Sources */,
+				DEDF672F2142C01800B0F48B /* MyWorkCollectionViewCell.m in Sources */,
 				1AE7FD551F18C051002666DA /* ChoseTypeTableViewCell.m in Sources */,
 				DEEF62432140F4EC003ECBB5 /* ToolsFunction.m in Sources */,
 				DEEF623E2140F4B8003ECBB5 /* NSDictionary+Accessors.m in Sources */,

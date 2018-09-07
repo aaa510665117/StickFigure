@@ -7,6 +7,7 @@
 //
 
 #import "MyViewController.h"
+#import "MyWorkViewController.h"
 
 @interface MyViewController ()
 
@@ -15,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *keshiLab;
 @property (weak, nonatomic) IBOutlet UILabel *softVerLab;
 @property (weak, nonatomic) IBOutlet UIButton *registerBtn;
+@property (weak, nonatomic) IBOutlet UIView *myWorkItem;
+
 
 @end
 
@@ -45,6 +48,8 @@
     _userImg.userInteractionEnabled = YES;
     UITapGestureRecognizer * imgGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickUserImg)];
     [_userImg addGestureRecognizer:imgGesture];
+    UITapGestureRecognizer * myWorkGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickMyWork)];
+    [_myWorkItem addGestureRecognizer:myWorkGesture];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -94,6 +99,8 @@
     UserProfile *user = [[UserProfile alloc] initFromBmobObject:[BmobUser currentUser]];
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:user.nickName preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }]];
     //增加确定按钮；
     [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //获取第1个输入框；
@@ -174,6 +181,13 @@
     
     [picker dismissViewControllerAnimated:YES
                                completion:nil];
+}
+
+- (void)clickMyWork{
+    //我的作品
+    MyWorkViewController * myWork = [[MyWorkViewController alloc]init];
+    myWork.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:myWork animated:YES];
 }
 
 - (IBAction)clickSignOutBtn:(id)sender {
