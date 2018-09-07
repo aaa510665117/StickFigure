@@ -19,6 +19,15 @@
 		1AE7FD581F18C46C002666DA /* StickTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD571F18C46C002666DA /* StickTypeCollectionViewCell.m */; };
 		DE83A245213E117400DC887D /* SEUpDownAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83A240213E117400DC887D /* SEUpDownAPI.m */; };
 		DE83A246213E117400DC887D /* ZYHttpAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83A241213E117400DC887D /* ZYHttpAPI.m */; };
+		DEA92B5121421E4500D90F3B /* UpMyStickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B5021421E4500D90F3B /* UpMyStickViewController.m */; };
+		DEA92B542142208C00D90F3B /* UpMyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B532142208C00D90F3B /* UpMyCollectionViewCell.m */; };
+		DEA92B60214231A400D90F3B /* SignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B57214231A400D90F3B /* SignViewController.m */; };
+		DEA92B61214231A400D90F3B /* StartSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA92B5B214231A400D90F3B /* StartSB.storyboard */; };
+		DEA92B63214231A400D90F3B /* LoginManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B5D214231A400D90F3B /* LoginManagerModel.m */; };
+		DEA92B6621423C7100D90F3B /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B6421423C7100D90F3B /* RegisterViewController.m */; };
+		DEA92B6A214253CE00D90F3B /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B69214253CE00D90F3B /* UserProfile.m */; };
+		DEA92B6E2142798F00D90F3B /* StickFigureImgObj.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B6D2142798F00D90F3B /* StickFigureImgObj.m */; };
+		DEA92B722142801700D90F3B /* DropDownMenuList.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B712142801700D90F3B /* DropDownMenuList.m */; };
 		DEEF62152140F262003ECBB5 /* CYLPlusButtonSubclass.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62142140F262003ECBB5 /* CYLPlusButtonSubclass.m */; };
 		DEEF621D2140F350003ECBB5 /* RootNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62172140F350003ECBB5 /* RootNavigationViewController.m */; };
 		DEEF621E2140F350003ECBB5 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEF62182140F350003ECBB5 /* RootViewController.m */; };
@@ -94,6 +103,23 @@
 		DE83A243213E117400DC887D /* HttpConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConfig.h; sourceTree = "<group>"; };
 		DE83A244213E117400DC887D /* ZYHttpAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYHttpAPI.h; sourceTree = "<group>"; };
 		DE8603A5213F7C7600A20131 /* Definition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
+		DEA92B4F21421E4500D90F3B /* UpMyStickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpMyStickViewController.h; sourceTree = "<group>"; };
+		DEA92B5021421E4500D90F3B /* UpMyStickViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpMyStickViewController.m; sourceTree = "<group>"; };
+		DEA92B522142208C00D90F3B /* UpMyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpMyCollectionViewCell.h; sourceTree = "<group>"; };
+		DEA92B532142208C00D90F3B /* UpMyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpMyCollectionViewCell.m; sourceTree = "<group>"; };
+		DEA92B57214231A400D90F3B /* SignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignViewController.m; sourceTree = "<group>"; };
+		DEA92B58214231A400D90F3B /* LoginManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginManagerModel.h; sourceTree = "<group>"; };
+		DEA92B5B214231A400D90F3B /* StartSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StartSB.storyboard; sourceTree = "<group>"; };
+		DEA92B5D214231A400D90F3B /* LoginManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginManagerModel.m; sourceTree = "<group>"; };
+		DEA92B5E214231A400D90F3B /* SignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignViewController.h; sourceTree = "<group>"; };
+		DEA92B6421423C7100D90F3B /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		DEA92B6521423C7100D90F3B /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		DEA92B68214253CE00D90F3B /* UserProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		DEA92B69214253CE00D90F3B /* UserProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
+		DEA92B6C2142798F00D90F3B /* StickFigureImgObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StickFigureImgObj.h; sourceTree = "<group>"; };
+		DEA92B6D2142798F00D90F3B /* StickFigureImgObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StickFigureImgObj.m; sourceTree = "<group>"; };
+		DEA92B702142801700D90F3B /* DropDownMenuList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownMenuList.h; sourceTree = "<group>"; };
+		DEA92B712142801700D90F3B /* DropDownMenuList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownMenuList.m; sourceTree = "<group>"; };
 		DEEF62132140F262003ECBB5 /* CYLPlusButtonSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLPlusButtonSubclass.h; sourceTree = "<group>"; };
 		DEEF62142140F262003ECBB5 /* CYLPlusButtonSubclass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLPlusButtonSubclass.m; sourceTree = "<group>"; };
 		DEEF62172140F350003ECBB5 /* RootNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationViewController.m; sourceTree = "<group>"; };
@@ -266,6 +292,7 @@
 		DE83A23E213E112300DC887D /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				DEA92B67214253B300D90F3B /* UserProfile */,
 				DEEF62402140F4D3003ECBB5 /* ToolsFunction */,
 				DEEF62212140F489003ECBB5 /* ExternClass */,
 				DE83A23F213E117400DC887D /* ZYHttp */,
@@ -285,9 +312,51 @@
 			path = ZYHttp;
 			sourceTree = "<group>";
 		};
+		DEA92B55214231A400D90F3B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DEA92B6521423C7100D90F3B /* RegisterViewController.h */,
+				DEA92B6421423C7100D90F3B /* RegisterViewController.m */,
+				DEA92B57214231A400D90F3B /* SignViewController.m */,
+				DEA92B58214231A400D90F3B /* LoginManagerModel.h */,
+				DEA92B5B214231A400D90F3B /* StartSB.storyboard */,
+				DEA92B5D214231A400D90F3B /* LoginManagerModel.m */,
+				DEA92B5E214231A400D90F3B /* SignViewController.h */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DEA92B67214253B300D90F3B /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				DEA92B68214253CE00D90F3B /* UserProfile.h */,
+				DEA92B69214253CE00D90F3B /* UserProfile.m */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		DEA92B6B2142796F00D90F3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEA92B6C2142798F00D90F3B /* StickFigureImgObj.h */,
+				DEA92B6D2142798F00D90F3B /* StickFigureImgObj.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DEA92B6F2142801700D90F3B /* DropDownMenuList */ = {
+			isa = PBXGroup;
+			children = (
+				DEA92B702142801700D90F3B /* DropDownMenuList.h */,
+				DEA92B712142801700D90F3B /* DropDownMenuList.m */,
+			);
+			path = DropDownMenuList;
+			sourceTree = "<group>";
+		};
 		DEEF62112140F248003ECBB5 /* Unility */ = {
 			isa = PBXGroup;
 			children = (
+				DEA92B6F2142801700D90F3B /* DropDownMenuList */,
 				DEEF62162140F350003ECBB5 /* RootController */,
 				DEEF62122140F262003ECBB5 /* CYLPlusButtonSubclass */,
 			);
@@ -355,6 +424,7 @@
 		DEEF62442140FB86003ECBB5 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				DEA92B55214231A400D90F3B /* Login */,
 				DEEF624C214117D9003ECBB5 /* Painting */,
 				DEEF624B2140FDE8003ECBB5 /* StickFigure */,
 				DEEF62452140FB91003ECBB5 /* My */,
@@ -375,6 +445,7 @@
 		DEEF624B2140FDE8003ECBB5 /* StickFigure */ = {
 			isa = PBXGroup;
 			children = (
+				DEA92B6B2142796F00D90F3B /* Model */,
 				1AE7FD521F18C02E002666DA /* View */,
 				1AE7FD4D1F18BDC2002666DA /* StickFigure.storyboard */,
 				1AE7FD4F1F18BDDE002666DA /* StickFigureViewController.h */,
@@ -391,6 +462,8 @@
 				DEEF624D21411802003ECBB5 /* PaintingSB.storyboard */,
 				DEEF624F21411812003ECBB5 /* PaintingViewController.h */,
 				DEEF625021411812003ECBB5 /* PaintingViewController.m */,
+				DEA92B4F21421E4500D90F3B /* UpMyStickViewController.h */,
+				DEA92B5021421E4500D90F3B /* UpMyStickViewController.m */,
 			);
 			path = Painting;
 			sourceTree = "<group>";
@@ -414,6 +487,8 @@
 			isa = PBXGroup;
 			children = (
 				DEEF625721412E13003ECBB5 /* drawBoard */,
+				DEA92B522142208C00D90F3B /* UpMyCollectionViewCell.h */,
+				DEA92B532142208C00D90F3B /* UpMyCollectionViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -542,6 +617,7 @@
 				DEEF62492140FB91003ECBB5 /* MySB.storyboard in Resources */,
 				1AE7FD4E1F18BDC2002666DA /* StickFigure.storyboard in Resources */,
 				DEEF624E21411802003ECBB5 /* PaintingSB.storyboard in Resources */,
+				DEA92B61214231A400D90F3B /* StartSB.storyboard in Resources */,
 				1AE7FD271F18B466002666DA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,11 +664,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StickFigure/Pods-StickFigure-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MWPhotoBrowser.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
@@ -609,13 +687,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEEF624A2140FB91003ECBB5 /* MyViewController.m in Sources */,
+				DEA92B6621423C7100D90F3B /* RegisterViewController.m in Sources */,
 				DE83A246213E117400DC887D /* ZYHttpAPI.m in Sources */,
 				DEEF623A2140F4B8003ECBB5 /* UIColor+App.m in Sources */,
+				DEA92B6A214253CE00D90F3B /* UserProfile.m in Sources */,
 				1AE7FD511F18BDDE002666DA /* StickFigureViewController.m in Sources */,
 				DEEF62152140F262003ECBB5 /* CYLPlusButtonSubclass.m in Sources */,
 				DE83A245213E117400DC887D /* SEUpDownAPI.m in Sources */,
 				DEEF62382140F4B8003ECBB5 /* UIViewController+ColorState.m in Sources */,
+				DEA92B722142801700D90F3B /* DropDownMenuList.m in Sources */,
 				DEEF62392140F4B8003ECBB5 /* NSObject+ObjectMap.m in Sources */,
+				DEA92B6E2142798F00D90F3B /* StickFigureImgObj.m in Sources */,
 				DEEF62362140F4B8003ECBB5 /* NSString+Code.m in Sources */,
 				DEEF623B2140F4B8003ECBB5 /* UIImage+Blur.m in Sources */,
 				DEEF621E2140F350003ECBB5 /* RootViewController.m in Sources */,
@@ -624,15 +706,19 @@
 				1AE7FD1F1F18B466002666DA /* AppDelegate.m in Sources */,
 				DEEF626321412F34003ECBB5 /* HBDrawCommon.m in Sources */,
 				1AE7FD581F18C46C002666DA /* StickTypeCollectionViewCell.m in Sources */,
+				DEA92B5121421E4500D90F3B /* UpMyStickViewController.m in Sources */,
 				DEEF621D2140F350003ECBB5 /* RootNavigationViewController.m in Sources */,
 				DEEF623F2140F4B8003ECBB5 /* NSString+FilePath.m in Sources */,
 				DEEF625D21412E8B003ECBB5 /* HBDrawModel.m in Sources */,
+				DEA92B63214231A400D90F3B /* LoginManagerModel.m in Sources */,
 				DEEF626021412EBC003ECBB5 /* HBDrawPoint.m in Sources */,
 				1AE7FD551F18C051002666DA /* ChoseTypeTableViewCell.m in Sources */,
 				DEEF62432140F4EC003ECBB5 /* ToolsFunction.m in Sources */,
 				DEEF623E2140F4B8003ECBB5 /* NSDictionary+Accessors.m in Sources */,
+				DEA92B60214231A400D90F3B /* SignViewController.m in Sources */,
 				DEEF625A21412E14003ECBB5 /* HBDrawingBoard.m in Sources */,
 				DEEF621F2140F350003ECBB5 /* RootTabBarViewController.m in Sources */,
+				DEA92B542142208C00D90F3B /* UpMyCollectionViewCell.m in Sources */,
 				DEEF626621413321003ECBB5 /* NSFileManager+Helper.m in Sources */,
 				DEEF62372140F4B8003ECBB5 /* CALayer+Additions.m in Sources */,
 				DEEF623C2140F4B8003ECBB5 /* UIImageView+ImageDefault.m in Sources */,

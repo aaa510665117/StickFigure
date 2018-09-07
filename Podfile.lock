@@ -14,9 +14,13 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - AFViewShaker (0.0.5)
+  - BmobSDK (2.3.1)
   - CYLTabBarController (1.17.16)
   - DACircularProgress (2.3.1)
   - HMSegmentedControl (1.5.5)
+  - IQKeyboardManager (6.1.1)
+  - Masonry (1.1.0)
   - MBProgressHUD (0.9.2)
   - MWPhotoBrowser (2.1.2):
     - DACircularProgress (~> 2.3)
@@ -29,14 +33,18 @@ PODS:
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - SVProgressHUD (2.2.5)
-  - UMCAnalytics (5.5.0):
+  - UMCAnalytics (5.5.1):
     - UMCCommon
   - UMCCommon (1.5.2)
 
 DEPENDENCIES:
   - AFNetworking
+  - AFViewShaker
+  - BmobSDK
   - CYLTabBarController
   - HMSegmentedControl
+  - IQKeyboardManager
+  - Masonry
   - MWPhotoBrowser
   - RTRootNavigationController
   - SDWebImage (~> 3.8.1)
@@ -46,9 +54,13 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - AFViewShaker
+    - BmobSDK
     - CYLTabBarController
     - DACircularProgress
     - HMSegmentedControl
+    - IQKeyboardManager
+    - Masonry
     - MBProgressHUD
     - MWPhotoBrowser
     - RTRootNavigationController
@@ -59,17 +71,21 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AFViewShaker: fc201fa4c0030e3f4875b9f84ac0763828518b00
+  BmobSDK: e0f9e4b451233a80af63a8ae4f2d239474bf567b
   CYLTabBarController: fb72c648645336953d522407892c4f61b7b3f898
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   HMSegmentedControl: f514c6dad47aa3065e0ed2e8046b73efc71221b9
+  IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
   RTRootNavigationController: d6aa6cbb78a3eaecea4f6e4df63f15dd887836b8
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  UMCAnalytics: 4667788559a72f2fa5077117d1b8802a3b6eb6bb
+  UMCAnalytics: 0aff87e39008e2a650e5917430db0da2de2f8495
   UMCCommon: 4392868ac47ff1b101663106bb114ba616fabbad
 
-PODFILE CHECKSUM: 5dd8c65ba6a0f694ff6809576d85cfac401b0c4c
+PODFILE CHECKSUM: 38bd6f020664871e048f2810fd70dfb770691a45
 
 COCOAPODS: 1.5.3

@@ -15,6 +15,10 @@ target ‘StickFigure' do
   pod 'CYLTabBarController'
   pod 'RTRootNavigationController'
   pod 'SVProgressHUD'
+  pod 'BmobSDK'
+  pod 'AFViewShaker'
+  pod 'IQKeyboardManager'
+  pod 'Masonry'
 
 end
 

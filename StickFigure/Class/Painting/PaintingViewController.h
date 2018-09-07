@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PaintingViewController : RootViewController<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface PaintingViewController : RootViewController<UICollectionViewDelegate, UICollectionViewDataSource, CAAnimationDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
 

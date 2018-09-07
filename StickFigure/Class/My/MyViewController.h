@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyViewController : RootViewController
+@interface MyViewController : RootViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end

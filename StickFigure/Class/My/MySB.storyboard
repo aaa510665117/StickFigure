@@ -21,12 +21,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eR0-w4-oWH">
                                 <rect key="frame" x="0.0" y="-30" width="375" height="220"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manDoc" translatesAutoresizingMaskIntoConstraints="NO" id="LLT-y0-J84">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oBj-kN-SD3">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                                        <color key="backgroundColor" red="0.88235294119999996" green="0.49019607840000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noSexDoc" translatesAutoresizingMaskIntoConstraints="NO" id="LLT-y0-J84">
                                         <rect key="frame" x="20" y="118" width="64" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="QY7-B3-BRI"/>
                                             <constraint firstAttribute="width" constant="64" id="dO3-AY-b5b"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="32"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzD-pd-MiU">
                                         <rect key="frame" x="117" y="118" width="44" height="21"/>
@@ -43,9 +52,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.49019607843137253" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="oBj-kN-SD3" secondAttribute="trailing" id="2xj-Gz-rPi"/>
                                     <constraint firstItem="LLT-y0-J84" firstAttribute="centerY" secondItem="eR0-w4-oWH" secondAttribute="centerY" constant="40" id="9q1-hI-sLV"/>
+                                    <constraint firstAttribute="bottom" secondItem="oBj-kN-SD3" secondAttribute="bottom" id="B4j-5s-vvf"/>
                                     <constraint firstItem="QMe-AE-45q" firstAttribute="leading" secondItem="QzD-pd-MiU" secondAttribute="leading" id="H0U-Xd-zFN"/>
+                                    <constraint firstItem="oBj-kN-SD3" firstAttribute="leading" secondItem="eR0-w4-oWH" secondAttribute="leading" id="KF0-27-eoC"/>
                                     <constraint firstItem="QzD-pd-MiU" firstAttribute="leading" secondItem="LLT-y0-J84" secondAttribute="trailing" constant="33" id="Yub-az-RU9"/>
+                                    <constraint firstItem="oBj-kN-SD3" firstAttribute="top" secondItem="eR0-w4-oWH" secondAttribute="top" id="bTQ-TC-8S0"/>
                                     <constraint firstItem="QzD-pd-MiU" firstAttribute="top" secondItem="LLT-y0-J84" secondAttribute="top" id="hyu-Yp-f2L"/>
                                     <constraint firstAttribute="height" constant="220" id="kdM-Ac-Vvb"/>
                                     <constraint firstItem="LLT-y0-J84" firstAttribute="leading" secondItem="eR0-w4-oWH" secondAttribute="leading" constant="20" id="lNf-1h-Pce"/>
@@ -97,7 +110,7 @@
                                     <constraint firstAttribute="height" constant="44" id="RTf-tw-C0f"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="注销">
+                                <state key="normal">
                                     <color key="titleColor" red="0.86666666670000003" green="0.25098039220000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -121,6 +134,7 @@
                     </view>
                     <connections>
                         <outlet property="keshiLab" destination="QMe-AE-45q" id="5ez-D2-BDb"/>
+                        <outlet property="registerBtn" destination="CSc-u0-amA" id="h3W-Dx-p8K"/>
                         <outlet property="softVerLab" destination="pAt-Nv-y7k" id="pdE-Dg-Rqn"/>
                         <outlet property="userImg" destination="LLT-y0-J84" id="c1g-IS-28g"/>
                         <outlet property="userNameLab" destination="QzD-pd-MiU" id="Pw5-T9-0GE"/>
@@ -128,10 +142,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6y-uu-7jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-646" y="130"/>
+            <point key="canvasLocation" x="-647.20000000000005" y="129.98500749625188"/>
         </scene>
     </scenes>
     <resources>
-        <image name="manDoc" width="24" height="24"/>
+        <image name="noSexDoc" width="36" height="36"/>
     </resources>
 </document>

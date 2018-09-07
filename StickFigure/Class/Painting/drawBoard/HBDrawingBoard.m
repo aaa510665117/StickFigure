@@ -240,7 +240,7 @@
 
 - (IBAction)clickEraser:(id)sender {
     //点击橡皮擦
-    _ise = YES;
+//    _ise = YES;
     _lineColor = [UIColor whiteColor];
 }
 
@@ -252,6 +252,8 @@
 
 - (IBAction)clickSave:(id)sender {
     //点击保存
+    UIImage * drawImg = [self screenshot:self.drawImage];
+    if(_clickSaveDone) _clickSaveDone(drawImg);
 }
 
 - (void)dealloc

@@ -9,14 +9,20 @@
 #import "PaintingViewController.h"
 #import "ColorBoxModel.h"
 #import "HBDrawingBoard.h"
+#import "UpMyStickViewController.h"
 
 @interface PaintingViewController ()
-
+{
+    BOOL isViewWillAppear;
+}
 @property (nonatomic, strong) NSArray *colors;
 @property (nonatomic, strong) NSArray *colorsModel;
 @property (weak, nonatomic) IBOutlet HBColorBall *ballView;
 @property (weak, nonatomic) IBOutlet UISlider *sliderView;
 @property (weak, nonatomic) IBOutlet HBDrawingBoard *drawView;
+@property (nonatomic, strong) UIImageView * upButton;
+@property (nonatomic, strong) CALayer * layer;
+@property (nonatomic, strong) NSMutableArray * imgAry;
 
 @end
 
@@ -25,7 +31,8 @@
 - (NSArray *)colors
 {
     if (!_colors) {
-        _colors = [NSArray arrayWithObjects:@"#ed4040",
+        _colors = [NSArray arrayWithObjects:@"#000000",
+                   @"#ed4040",
                    @"#f5973c",
                    @"#efe82e",
                    @"#7ce331",
@@ -57,6 +64,14 @@
     return _colorsModel;
 }
 
+-(NSMutableArray *)imgAry
+{
+    if(!_imgAry){
+        _imgAry = [[NSMutableArray alloc]init];
+    }
+    return _imgAry;
+}
+
 -(instancetype)init{
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PaintingSB" bundle:nil];
@@ -70,11 +85,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    isViewWillAppear = NO;
     // Do any additional setup after loading the view.
     UIButton *canelButton = [UIButton buttonWithType:UIButtonTypeCustom];
     canelButton.backgroundColor = [UIColor clearColor];
     canelButton.titleLabel.font = [UIFont systemFontOfSize: 16];
-    canelButton.frame = CGRectMake(0, 0, 48, 22);
+    canelButton.frame = CGRectMake(0, 0, 48, 40);
     [canelButton setTitle:@"取消" forState:UIControlStateNormal];
     [canelButton addTarget:self action:@selector(clickCanelButton) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *canelButtonItem = [[UIBarButtonItem alloc]initWithCustomView:canelButton];
@@ -88,6 +104,32 @@
     _sliderView.value = 0.3;
     [_drawView setLineWidth:0.3*10];
     [_drawView setLineColor:[UIColor colorWithHexString:colorObj.color alpha:1.0]];
+    __weak typeof(self) vc = self;
+    _drawView.clickSaveDone = ^(UIImage * img) {
+        [vc addAnimatedWithFrame:img];
+    };
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if(isViewWillAppear == NO)
+    {
+        UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+        _upButton = [[UIImageView alloc]init];
+        _upButton.backgroundColor = [UIColor whiteColor];
+        _upButton.frame = CGRectMake(0, 0, 50, 30);
+        _upButton.layer.cornerRadius = 6.0;
+        _upButton.layer.masksToBounds = YES;
+        _upButton.userInteractionEnabled = YES;
+        [rightView addSubview:_upButton];
+        UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickUpButton)];
+        [rightView addGestureRecognizer:tapGesture];
+        //    [_upButton addTarget:self action:@selector(clickUpButton) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *upButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightView];
+        self.navigationItem.rightBarButtonItem = upButtonItem;
+    }
+    isViewWillAppear = YES;
 }
 
 - (IBAction)sliderView:(UISlider *)sender {
@@ -100,6 +142,18 @@
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
     }];
+}
+
+-(void)clickUpButton
+{
+    if(self.imgAry.count == 0)
+    {
+        [ToolsFunction showPromptViewWithString:@"画完请点击右下角保存~" background:nil timeDuration:1.5];
+        return;
+    }
+    UpMyStickViewController * upMyStick = [[UpMyStickViewController alloc]init];
+    upMyStick.imgAry = self.imgAry;
+    [self.navigationController pushViewController:upMyStick animated:YES];
 }
 
 #pragma mark - collectionView
@@ -137,6 +191,75 @@
     _ballView.ballColor = [UIColor colorWithHexString:colorObj.color alpha:1.0];
     [_drawView setLineColor:[UIColor colorWithHexString:colorObj.color alpha:1.0]];
     [self.myCollectionView reloadData];
+}
+
+- (void)addAnimatedWithFrame:(UIImage *)img {
+    // 该部分动画 以self.view为参考系进行
+    [self.imgAry addObject:img];
+    UIImageView * temp = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 50, 30)];
+    temp.image = img;
+    [_drawView addSubview:temp];
+    temp.center = _drawView.center;
+    CGPoint fromCenter =  [temp convertPoint:CGPointMake(temp.frame.size.width * 0.5f, temp.frame.size.height * 0.5f) toView:[AppDelegate appDelegate].window];
+    CGPoint endCenter = [_upButton convertPoint:CGPointMake(_upButton.frame.size.width * 0.5f, _upButton.frame.size.height * 0.5f) toView:[AppDelegate appDelegate].window];
+
+    _layer = [CALayer layer];
+    _layer.bounds = temp.bounds;
+    _layer.contents = temp.layer.contents;
+    _layer.contentsGravity = kCAGravityResizeAspect;
+    _layer.borderColor = [UIColor orangeColor].CGColor;
+    _layer.borderWidth = 1.0f;
+    _layer.cornerRadius = 6.0;
+    [[AppDelegate appDelegate].window.layer addSublayer:_layer];
+
+    _layer.position = fromCenter; //a 点
+    // 路径
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:_layer.position];
+    _layer.position = endCenter; //a 点
+    
+    [path addQuadCurveToPoint:endCenter controlPoint:CGPointMake(UISCREEN_BOUNDS_SIZE.width/2, fromCenter.y)];
+    //关键帧动画
+    CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    pathAnimation.path = path.CGPath;
+
+    //往下抛时旋转小动画
+    CABasicAnimation *rotateAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotateAnimation.removedOnCompletion = YES;
+    rotateAnimation.fromValue = [NSNumber numberWithFloat:0];
+    rotateAnimation.toValue = [NSNumber numberWithFloat:12];
+    
+    /**
+     *   kCAMediaTimingFunctionLinear   动画从头到尾的速度是相同的
+     kCAMediaTimingFunctionEaseIn   动画以低速开始。
+     kCAMediaTimingFunctionEaseOut  动画以低速结束。
+     kCAMediaTimingFunctionEaseInEaseOut   动画以低速开始和结束。
+     kCAMediaTimingFunctionDefault
+     */
+    
+    rotateAnimation.timingFunction=[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    CAAnimationGroup *groups = [CAAnimationGroup animation];
+    groups.animations = @[pathAnimation,rotateAnimation];
+    groups.duration = 1.2f;
+    
+    //设置之后做动画的layer不会回到一开始的位置
+    groups.removedOnCompletion=NO;
+    groups.fillMode=kCAFillModeForwards;
+    
+    //让工具类成为组动画的代理
+    groups.delegate = self;
+    [temp removeFromSuperview];
+    [_layer addAnimation:groups forKey:@"group"];
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    if (anim == [_layer animationForKey:@"group"]) {
+        UIImage * img = [[UIImage alloc] initWithCGImage:(CGImageRef)_layer.contents];
+        [_upButton setImage:img];
+        [_layer removeFromSuperlayer];
+        _layer = nil;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

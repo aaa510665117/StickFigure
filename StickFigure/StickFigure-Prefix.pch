@@ -19,12 +19,16 @@
 #import "RootViewController.h"
 #import "RootNavigationViewController.h"
 #import "ToolsFunction.h"
+#import "IQKeyboardManager.h"
+#import <BmobSDK/Bmob.h>
+#import <Masonry/Masonry.h>
 
 #import "UIViewController+RTRootNavigationController.h"
 #import "UIColor+App.h"
 #import "NSFileManager+Helper.h"
 #import "UIViewController+ColorState.h"
 #import "CYLPlusButtonSubclass.h"
+#import "NSDictionary+Accessors.h"
 
 //#define Service_Local  @"http://192.168.20.32/StickFigure/"
 #define Service_Local @"https://stickfigure-1-1253886669.cos.ap-beijing.myqcloud.com/StickFigure/"

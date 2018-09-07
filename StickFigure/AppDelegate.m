@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SignViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,8 +21,8 @@
     
     //load App
     [self launchApp:launchOptions];
-
-    //三方库
+    
+    //用户数据
     [self initTripartite];
     
     return YES;
@@ -29,13 +30,22 @@
 
 -(void)initTripartite
 {
+    _userProfile = [[UserProfile alloc] initFromBmobObject:[BmobUser currentUser]];
+    _loginManager = [[LoginManagerModel alloc]init];
+
+    //Bmob
+    [Bmob registerWithAppKey:@"f13f2de697a3e7d165f9572f77af51bc"];
+    
     [UMConfigure initWithAppkey:Umeng_APPKey channel:@"App Store"];
     // 统计组件配置
     [MobClick setScenarioType:E_UM_NORMAL];
+    
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
+    [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:@"完成"];
 }
 
 - (void)launchApp:(NSDictionary *)launchOptions{
-    
     [self showMainTabNav];
 }
 
@@ -47,6 +57,14 @@
     [self.window makeKeyAndVisible];
 }
 
+//登录与注册
+-(void)showLoginNav
+{
+    SignViewController *startViewController = [[SignViewController alloc]init];
+    UINavigationController * startNav = [[UINavigationController alloc]initWithRootViewController:startViewController];
+    [[ToolsFunction getCurrentRootViewController].navigationController  presentViewController:startNav animated:YES completion:nil];
+}
+
 - (UIWindow *)window
 {
     if (!_window) {
@@ -54,6 +72,15 @@
         _window.backgroundColor = [UIColor whiteColor];
     }
     return _window;
+}
+
+-(BOOL)isLogin
+{
+    BmobUser *bUser = [BmobUser currentUser];
+    if(bUser){
+        return YES;
+    }
+    return NO;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

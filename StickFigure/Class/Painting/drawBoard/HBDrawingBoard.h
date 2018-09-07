@@ -21,20 +21,15 @@ typedef NS_ENUM(NSInteger, actionOpen) {
     actionOpenCamera
 };
 
+typedef void(^ClickSaveDone)(UIImage *);
+
 @interface HBDrawingBoard : UIView
 
 @property (nonatomic, assign) BOOL ise;
 @property (nonatomic, strong) UIColor *lineColor;//画笔颜色
 @property (nonatomic, assign) CGFloat lineWidth;//线宽
-/**
- *  根据点的集合绘制      
- *
- *  @param points    ["{x,y}"...]
- *  @param lineColor 颜色
- *  @param lineWidth 线宽
- *
- *  @return YES -> 绘制完成  反之
- */
+@property (nonatomic, copy) ClickSaveDone clickSaveDone;
+
 - (BOOL)drawWithPoints:(HBDrawModel *)model;
 
 @end
