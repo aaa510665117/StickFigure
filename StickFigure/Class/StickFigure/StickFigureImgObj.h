@@ -7,6 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <BmobSDK/Bmob.h>
+
+typedef enum{
+    SFTypeAnimal,       //动物
+    SFTypeFruit,        //果蔬
+    SFTypePreson,       //人物
+    SFTypeTraffic,      //交通工具
+}SFType;
 
 @interface StickFigureImgObj : BmobObject
 

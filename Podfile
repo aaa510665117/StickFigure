@@ -9,16 +9,18 @@ target ‘StickFigure' do
 #pod 'ZYModule'
   pod 'SDWebImage','~> 3.8.1'
   pod 'HMSegmentedControl'
-  pod 'MWPhotoBrowser'
   pod 'AFNetworking'
   pod 'UMCAnalytics'
   pod 'CYLTabBarController'
   pod 'RTRootNavigationController'
   pod 'SVProgressHUD'
+  pod 'MBProgressHUD'
   pod 'BmobSDK'
   pod 'AFViewShaker'
   pod 'IQKeyboardManager'
   pod 'Masonry'
+  pod 'MJRefresh'
+  pod 'ZLPhotoBrowser'
 
 end
 

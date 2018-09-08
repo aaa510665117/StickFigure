@@ -19,6 +19,9 @@
 		1AE7FD581F18C46C002666DA /* StickTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD571F18C46C002666DA /* StickTypeCollectionViewCell.m */; };
 		DE83A245213E117400DC887D /* SEUpDownAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83A240213E117400DC887D /* SEUpDownAPI.m */; };
 		DE83A246213E117400DC887D /* ZYHttpAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83A241213E117400DC887D /* ZYHttpAPI.m */; };
+		DE98CBF22143671C00F351F4 /* DiyMjRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98CBF12143671C00F351F4 /* DiyMjRefresh.m */; };
+		DE98CBF52143694E00F351F4 /* DiyMjRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98CBF42143694E00F351F4 /* DiyMjRefreshFooter.m */; };
+		DE98CBF82143779F00F351F4 /* ListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98CBF72143779F00F351F4 /* ListCollectionView.m */; };
 		DEA92B5121421E4500D90F3B /* UpMyStickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B5021421E4500D90F3B /* UpMyStickViewController.m */; };
 		DEA92B542142208C00D90F3B /* UpMyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B532142208C00D90F3B /* UpMyCollectionViewCell.m */; };
 		DEA92B60214231A400D90F3B /* SignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA92B57214231A400D90F3B /* SignViewController.m */; };
@@ -105,6 +108,12 @@
 		DE83A243213E117400DC887D /* HttpConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConfig.h; sourceTree = "<group>"; };
 		DE83A244213E117400DC887D /* ZYHttpAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYHttpAPI.h; sourceTree = "<group>"; };
 		DE8603A5213F7C7600A20131 /* Definition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
+		DE98CBF02143671C00F351F4 /* DiyMjRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiyMjRefresh.h; sourceTree = "<group>"; };
+		DE98CBF12143671C00F351F4 /* DiyMjRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiyMjRefresh.m; sourceTree = "<group>"; };
+		DE98CBF32143694D00F351F4 /* DiyMjRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiyMjRefreshFooter.h; sourceTree = "<group>"; };
+		DE98CBF42143694E00F351F4 /* DiyMjRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiyMjRefreshFooter.m; sourceTree = "<group>"; };
+		DE98CBF62143779F00F351F4 /* ListCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListCollectionView.h; sourceTree = "<group>"; };
+		DE98CBF72143779F00F351F4 /* ListCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListCollectionView.m; sourceTree = "<group>"; };
 		DEA92B4F21421E4500D90F3B /* UpMyStickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpMyStickViewController.h; sourceTree = "<group>"; };
 		DEA92B5021421E4500D90F3B /* UpMyStickViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpMyStickViewController.m; sourceTree = "<group>"; };
 		DEA92B522142208C00D90F3B /* UpMyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpMyCollectionViewCell.h; sourceTree = "<group>"; };
@@ -273,6 +282,8 @@
 				1AE7FD541F18C051002666DA /* ChoseTypeTableViewCell.m */,
 				1AE7FD561F18C46C002666DA /* StickTypeCollectionViewCell.h */,
 				1AE7FD571F18C46C002666DA /* StickTypeCollectionViewCell.m */,
+				DE98CBF62143779F00F351F4 /* ListCollectionView.h */,
+				DE98CBF72143779F00F351F4 /* ListCollectionView.m */,
 			);
 			name = View;
 			path = ../..;
@@ -316,6 +327,17 @@
 				DE83A244213E117400DC887D /* ZYHttpAPI.h */,
 			);
 			path = ZYHttp;
+			sourceTree = "<group>";
+		};
+		DE98CBEF2143671C00F351F4 /* DiyMJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				DE98CBF32143694D00F351F4 /* DiyMjRefreshFooter.h */,
+				DE98CBF42143694E00F351F4 /* DiyMjRefreshFooter.m */,
+				DE98CBF02143671C00F351F4 /* DiyMjRefresh.h */,
+				DE98CBF12143671C00F351F4 /* DiyMjRefresh.m */,
+			);
+			path = DiyMJRefresh;
 			sourceTree = "<group>";
 		};
 		DEA92B55214231A400D90F3B /* Login */ = {
@@ -371,6 +393,7 @@
 		DEEF62112140F248003ECBB5 /* Unility */ = {
 			isa = PBXGroup;
 			children = (
+				DE98CBEF2143671C00F351F4 /* DiyMJRefresh */,
 				DEA92B6F2142801700D90F3B /* DropDownMenuList */,
 				DEEF62162140F350003ECBB5 /* RootController */,
 				DEEF62122140F262003ECBB5 /* CYLPlusButtonSubclass */,
@@ -682,15 +705,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StickFigure/Pods-StickFigure-resources.sh",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoActionSheet.xib",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowserCell.xib",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowser.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MWPhotoBrowser.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoActionSheet.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoBrowserCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoBrowser.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -705,10 +744,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEEF624A2140FB91003ECBB5 /* MyViewController.m in Sources */,
+				DE98CBF52143694E00F351F4 /* DiyMjRefreshFooter.m in Sources */,
 				DEA92B6621423C7100D90F3B /* RegisterViewController.m in Sources */,
 				DE83A246213E117400DC887D /* ZYHttpAPI.m in Sources */,
 				DEEF623A2140F4B8003ECBB5 /* UIColor+App.m in Sources */,
 				DEA92B6A214253CE00D90F3B /* UserProfile.m in Sources */,
+				DE98CBF82143779F00F351F4 /* ListCollectionView.m in Sources */,
 				1AE7FD511F18BDDE002666DA /* StickFigureViewController.m in Sources */,
 				DEEF62152140F262003ECBB5 /* CYLPlusButtonSubclass.m in Sources */,
 				DE83A245213E117400DC887D /* SEUpDownAPI.m in Sources */,
@@ -733,6 +774,7 @@
 				DEEF626021412EBC003ECBB5 /* HBDrawPoint.m in Sources */,
 				DEDF672F2142C01800B0F48B /* MyWorkCollectionViewCell.m in Sources */,
 				1AE7FD551F18C051002666DA /* ChoseTypeTableViewCell.m in Sources */,
+				DE98CBF22143671C00F351F4 /* DiyMjRefresh.m in Sources */,
 				DEEF62432140F4EC003ECBB5 /* ToolsFunction.m in Sources */,
 				DEEF623E2140F4B8003ECBB5 /* NSDictionary+Accessors.m in Sources */,
 				DEA92B60214231A400D90F3B /* SignViewController.m in Sources */,

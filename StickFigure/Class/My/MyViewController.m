@@ -185,6 +185,11 @@
 
 - (void)clickMyWork{
     //我的作品
+    BmobUser *bUser = [BmobUser currentUser];
+    if (!bUser) {
+        [[AppDelegate appDelegate] showLoginNav];
+    }
+    
     MyWorkViewController * myWork = [[MyWorkViewController alloc]init];
     myWork.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:myWork animated:YES];

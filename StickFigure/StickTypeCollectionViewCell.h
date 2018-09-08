@@ -10,6 +10,6 @@
 
 @interface StickTypeCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *stickImg;
+@property (strong, nonatomic) UIImageView *stickImg;
 
 @end

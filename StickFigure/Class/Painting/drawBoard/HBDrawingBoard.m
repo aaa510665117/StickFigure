@@ -45,6 +45,7 @@
     [self addSubview:self.drawImage];
 
     [self.drawImage addSubview:self.drawView];
+    self.drawImage.backgroundColor = [UIColor whiteColor];
     
     _lineColor = [UIColor orangeColor];
     _lineWidth = 10.0f;

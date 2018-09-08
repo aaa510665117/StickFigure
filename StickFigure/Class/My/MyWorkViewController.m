@@ -8,20 +8,26 @@
 
 #import "MyWorkViewController.h"
 #import "MyWorkCollectionViewCell.h"
+#import "StickFigureImgObj.h"
+
+#define MAX_SERVICE_PAGE 20
 
 @interface MyWorkViewController ()
-
-@property(nonatomic, strong) NSArray * showDataAry;
+{
+    BOOL isViewDidAppear;
+}
+@property(nonatomic, strong) NSMutableArray * showDataAry;
+@property (nonatomic, assign) long recordPage;
 
 @end
 
 @implementation MyWorkViewController
 
--(NSArray *)showDataAry
+-(NSMutableArray *)showDataAry
 {
     if(!_showDataAry)
     {
-        _showDataAry = [[NSArray alloc]init];
+        _showDataAry = [[NSMutableArray alloc]init];
     }
     return _showDataAry;
 }
@@ -40,6 +46,81 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    isViewDidAppear = NO;
+    [self addHeader];
+    [self addFooter];
+    _recordPage = 1;
+}
+
+- (void)addHeader
+{
+    __weak typeof(self) vc = self;
+    self.myCollectionView.mj_header = [DiyMjRefresh headerWithRefreshingBlock:^{
+        // 进入刷新状态后会自动调用这个block
+        [vc getMyWork:vc.recordPage];
+    }];
+}
+
+- (void)addFooter
+{
+    __weak typeof(self) vc = self;
+    // 添加上拉刷新尾部控件
+    self.myCollectionView.mj_footer = [DiyMjRefreshFooter footerWithRefreshingBlock:^{
+        // 进入刷新状态就会回调这个Block
+        [vc getMyWork:vc.recordPage];
+    }];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    if(isViewDidAppear == NO)
+    {
+        [self.myCollectionView.mj_header beginRefreshing];
+    }
+    isViewDidAppear = YES;
+}
+
+-(void)getMyWork:(long)page
+{
+    __weak typeof(self) vc = self;
+    BmobUser * bUser = [BmobUser currentUser];
+    BmobQuery   *bquery = [StickFigureImgObj query];
+    bquery.limit = MAX_SERVICE_PAGE;
+    bquery.skip = MAX_SERVICE_PAGE * (page-1);
+    [bquery whereKey:@"userInfo" equalTo:bUser];
+    //查找GameScore表里面id为0c6db13c的数据
+    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        NSMutableArray * temp = [[NSMutableArray alloc]init];
+        for (BmobObject *obj in array) {
+            StickFigureImgObj *t = [[StickFigureImgObj alloc] initFromBmobObject:obj];
+            [temp addObject:t];
+        }
+        //数据处理结果加载
+        if (page == 1)
+        {
+            if (temp.count) vc.recordPage = 2;
+            vc.showDataAry = [NSMutableArray arrayWithArray:temp];
+        }
+        else
+        {
+            if (temp.count) vc.recordPage++;
+            [vc.showDataAry addObjectsFromArray:temp];
+        }
+        
+        //刷新控件判断加载
+        if(array.count < MAX_SERVICE_PAGE)
+        {
+            [vc.myCollectionView.mj_footer endRefreshingWithNoMoreData];
+        }
+        else
+        {
+            [vc.myCollectionView.mj_footer endRefreshing];
+        }
+        
+        [vc.myCollectionView reloadData];
+        [vc.myCollectionView.mj_header endRefreshing];
+    }];
 }
 
 #pragma mark -- UICollectionViewDataSource
@@ -59,11 +140,15 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *moreCellIdentifier = @"MyWorkCollectionViewCell";
+    StickFigureImgObj * sfObj = [_showDataAry objectAtIndex:indexPath.row];
     MyWorkCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:moreCellIdentifier forIndexPath:indexPath];
     cell.sfImg.layer.borderColor = [UIColor orangeColor].CGColor;
     cell.sfImg.layer.borderWidth = 1.0f;
     cell.sfImg.layer.cornerRadius = 6.0;
-//    cell.sfImg.image = [_imgAry obectAtIndex:indexPath.row];
+    [sfObj.imageGroup enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(idx == 0)
+            [cell.sfImg sd_setImageWithURL:[NSURL URLWithString:obj] placeholderImage:[UIImage imageNamed:@"groundImg"]];
+    }];
     return cell;
 }
 
@@ -71,7 +156,7 @@
 //定义每个UICollectionView 的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(UISCREEN_BOUNDS_SIZE.width/2, UISCREEN_BOUNDS_SIZE.width/2);
+    return CGSizeMake(UISCREEN_BOUNDS_SIZE.width/3, UISCREEN_BOUNDS_SIZE.width/3);
 }
 
 //定义UICollectionView 的边距（返回UIEdgeInsets：上、左、下、右）
@@ -82,6 +167,19 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    //查看图片
+    StickFigureImgObj * sfObj = [_showDataAry objectAtIndex:indexPath.row];
+    ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
+    actionSheet.backgroundColor = [UIColor whiteColor];
+    actionSheet.sender = [ToolsFunction getCurrentRootViewController];
+    NSMutableArray * tempPhoto = [[NSMutableArray alloc]init];
+    [sfObj.imageGroup enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSDictionary * dic = GetDictForPreviewPhoto(obj, ZLPreviewPhotoTypeURLImage);
+//        NSDictionary * dic = GetDictForPreviewPhoto([NSURL URLWithString:obj], ZLPreviewPhotoTypeURLImage);
+        [tempPhoto addObject:dic];
+    }];
+    [actionSheet previewPhotos:tempPhoto index:0 hideToolBar:YES complete:^(NSArray * _Nonnull photos) {
+    }];
 }
 
 

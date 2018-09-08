@@ -7,20 +7,16 @@
 //
 
 #import "StickFigureViewController.h"
+#import "ListCollectionView.h"
 
-@interface StickFigureViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,MWPhotoBrowserDelegate>
+@interface StickFigureViewController ()<UIScrollViewDelegate>
 {
-    NSArray * choseTypeAry;
     BOOL isViewDidAppear;
 }
-@property(nonatomic, assign) long choseTypeIndex;
+@property(nonatomic, assign) SFType choseType;
+@property(nonatomic, strong) NSMutableArray * viewAry;
 @property (nonatomic, strong)HMSegmentedControl *mySegment;
-@property (nonatomic, strong) NSMutableArray * animalAry;
-@property (nonatomic, strong) NSMutableArray * fruitsAry;
-@property (nonatomic, strong) NSMutableArray * vegetablesAry;
-@property (nonatomic, strong) NSMutableArray * cartoonAry;
-@property (nonatomic, strong) NSMutableArray * vehicleAry;
-@property (nonatomic, strong) NSMutableArray * photos;      //用于查看大图
+@property (nonatomic, strong) UIScrollView * myScrollView;
 
 @end
 
@@ -38,32 +34,71 @@
     return self;
 }
 
+-(NSMutableArray *)viewAry
+{
+    if(!_viewAry)
+    {
+        _viewAry = [[NSMutableArray alloc]init];
+    }
+    return _viewAry;
+}
+
+-(UIScrollView *)myScrollView
+{
+    if(!_myScrollView)
+    {
+        _myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 55, CGRectGetWidth(self.view.frame), self.view.frame.size.height-55-StatusBarHeight-NavigationBarHeight)];
+        _myScrollView.pagingEnabled = YES;
+        _myScrollView.showsHorizontalScrollIndicator = NO;
+        _myScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame) * [StickFigureImgObj getTypeAry].count, self.view.frame.size.height-55-StatusBarHeight-NavigationBarHeight);
+        _myScrollView.delegate = self;
+        _myScrollView.bounces = NO;
+    }
+    return _myScrollView;
+}
+
+-(HMSegmentedControl *)mySegment
+{
+    if(!_mySegment)
+    {
+        __weak typeof(self) weakSelf = self;
+        _mySegment = [[HMSegmentedControl alloc] initWithSectionTitles:[StickFigureImgObj getTypeAry]];
+        [_mySegment setFrame:CGRectMake(0, 0, UISCREEN_BOUNDS_SIZE.width, 44)];
+        _mySegment.selectionIndicatorHeight = 3.0f;
+        _mySegment.titleTextAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:15], NSForegroundColorAttributeName : [UIColor colorWithRed:0.349 green:0.341 blue:0.341 alpha:1.000]};
+        _mySegment.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:244/255.0 green:88/255.0 blue:85/255.0 alpha:1.0]};
+        _mySegment.selectionIndicatorColor = [UIColor colorWithRed:244/255.0 green:88/255.0 blue:85/255.0 alpha:1.0];
+        _mySegment.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
+        _mySegment.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+        _mySegment.verticalDividerEnabled = NO;
+        _mySegment.verticalDividerColor = [UIColor colorWithRed:0.788 green:0.792 blue:0.792 alpha:1.000];
+        _mySegment.selectedSegmentIndex = 0;
+        [_mySegment setIndexChangeBlock:^(NSInteger index) {
+            weakSelf.choseType = (SFType)index;
+            [weakSelf.myScrollView scrollRectToVisible:CGRectMake(CGRectGetWidth(weakSelf.view.frame) * index, 0, CGRectGetWidth(weakSelf.view.frame), weakSelf.myScrollView.frame.size.height) animated:YES];
+            ListCollectionView * listView = [weakSelf.viewAry objectAtIndex:index];
+            [listView getData];
+        }];
+    }
+    return _mySegment;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    choseTypeAry = @[@"动物",@"水果",@"蔬菜",@"动漫",@"交通工具"];
     isViewDidAppear = NO;
-    _choseTypeIndex = 0;
+    _choseType = SFTypeAnimal;
+    
+    [self.view addSubview:self.mySegment];
+    [self.view addSubview:self.myScrollView];
     
     __weak typeof(self) weakSelf = self;
-    _mySegment = [[HMSegmentedControl alloc] initWithSectionTitles:choseTypeAry];
-    [_mySegment setFrame:CGRectMake(0, 0, UISCREEN_BOUNDS_SIZE.width, 44)];
-    _mySegment.selectionIndicatorHeight = 3.0f;
-    _mySegment.titleTextAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:15], NSForegroundColorAttributeName : [UIColor colorWithRed:0.349 green:0.341 blue:0.341 alpha:1.000]};
-    _mySegment.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:244/255.0 green:88/255.0 blue:85/255.0 alpha:1.0]};
-    _mySegment.selectionIndicatorColor = [UIColor colorWithRed:244/255.0 green:88/255.0 blue:85/255.0 alpha:1.0];
-    _mySegment.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
-    _mySegment.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-    _mySegment.verticalDividerEnabled = NO;
-    _mySegment.verticalDividerColor = [UIColor colorWithRed:0.788 green:0.792 blue:0.792 alpha:1.000];
-    _mySegment.selectedSegmentIndex = 0;
-    [_mySegment setIndexChangeBlock:^(NSInteger index) {
-        weakSelf.choseTypeIndex = index;
-        [weakSelf.showImgCollectionView reloadData];
+    [[StickFigureImgObj getTypeAry] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        ListCollectionView * listView = [[ListCollectionView alloc]initWithFrame:CGRectMake((CGRectGetWidth(weakSelf.view.frame))*idx, 0, CGRectGetWidth(weakSelf.view.frame), weakSelf.myScrollView.frame.size.height)];
+        listView.sftype = (SFType)idx;
+        [self.myScrollView addSubview:listView];
+        [weakSelf.viewAry addObject:listView];
     }];
-    [self.view addSubview:_mySegment];
-    
-//    [[SDImageCache sharedImageCache] clearDisk];  //清除缓存
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -71,7 +106,8 @@
     [super viewDidAppear:animated];
     if(isViewDidAppear == NO){
         isViewDidAppear = YES;
-        [self getphotoAry];
+        ListCollectionView * listView = [self.viewAry objectAtIndex:0];
+        [listView getData];
     }
 }
 
@@ -82,12 +118,12 @@
         __weak typeof(self) vc = self;
         NSMutableArray * dic = [success objectForKey:HTTP_RETURN_RESULT];
         [dic enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSDictionary * dic = obj;
-            if(idx == 0)vc.animalAry = [dic objectForKey:@"animal"];
-            if(idx == 1)vc.fruitsAry = [dic objectForKey:@"fruits"];
-            if(idx == 2)vc.vegetablesAry = [dic objectForKey:@"vegetables"];
-            if(idx == 3)vc.cartoonAry = [dic objectForKey:@"cartoon"];
-            if(idx == 4)vc.vehicleAry = [dic objectForKey:@"Vehicle"];
+//            NSDictionary * dic = obj;
+//            if(idx == 0)vc.animalAry = [dic objectForKey:@"animal"];
+//            if(idx == 1)vc.fruitsAry = [dic objectForKey:@"fruits"];
+//            if(idx == 2)vc.vegetablesAry = [dic objectForKey:@"vegetables"];
+//            if(idx == 3)vc.cartoonAry = [dic objectForKey:@"cartoon"];
+//            if(idx == 4)vc.vehicleAry = [dic objectForKey:@"Vehicle"];
             [vc.showImgCollectionView reloadData];
         }];
         
@@ -96,151 +132,12 @@
     }];
 }
 
-#pragma collectionView--Delegate
-//定义每个UICollectionView 的大小
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake((UISCREEN_BOUNDS_SIZE.width-40)/3 , (UISCREEN_BOUNDS_SIZE.width-40)/3);
-}
-
-//定义UICollectionView 的边距（返回UIEdgeInsets：上、左、下、右）
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(0, 0, 0, 0);
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    switch (_choseTypeIndex) {
-        case 0:
-        {
-            return _animalAry.count;
-        }
-            break;
-        case 1:
-        {
-            return _fruitsAry.count;
-        }
-            break;
-        case 2:
-        {
-            return _vegetablesAry.count;
-        }
-            break;
-        case 3:
-        {
-            return _cartoonAry.count;
-        }
-            break;
-        case 4:
-        {
-            return _vegetablesAry.count;
-        }
-            break;
-        default:
-            break;
-    }
-    return 0;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    StickTypeCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"StickTypeCollectionViewCell" forIndexPath:indexPath];
-    
-    switch (_choseTypeIndex) {
-        case 0:
-        {
-//            [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]];
-            [cell.stickImg sd_setImageWithURL:[_animalAry objectAtIndex:indexPath.row]];
-
-        }
-            break;
-        case 1:
-        {
-//            [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Fruits/",indexPath.row+1,indexPath.row+1]]];
-            [cell.stickImg sd_setImageWithURL:[_fruitsAry objectAtIndex:indexPath.row]];
-        }
-            break;
-        case 2:
-        {
-            [cell.stickImg sd_setImageWithURL:[_vegetablesAry objectAtIndex:indexPath.row]];
-        }
-            break;
-        case 3:
-        {
-            [cell.stickImg sd_setImageWithURL:[_cartoonAry objectAtIndex:indexPath.row]];
-        }
-            break;
-        case 4:
-        {
-            [cell.stickImg sd_setImageWithURL:[_vehicleAry objectAtIndex:indexPath.row]];
-        }
-            break;
-        default:
-            break;
-    }
-    
-    return cell;
-}
-
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    _photos = [NSMutableArray array];
-    switch (_choseTypeIndex) {
-        case 0:
-        {
-//            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld/%ld-1.jpg",Service_Local,@"Animal/",indexPath.row+1,indexPath.row+1]]]];
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[_animalAry objectAtIndex:indexPath.row]]]];
-        }
-            break;
-        case 1:
-        {
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[_fruitsAry objectAtIndex:indexPath.row]]]];
-        }
-            break;
-        case 2:
-        {
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[_vegetablesAry objectAtIndex:indexPath.row]]]];
-        }
-            break;
-        case 3:
-        {
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[_cartoonAry objectAtIndex:indexPath.row]]]];
-        }
-            break;
-        case 4:
-        {
-            [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[_vehicleAry objectAtIndex:indexPath.row]]]];
-        }
-            break;
-        default:
-            break;
-    }
-        
-    // Create browser (must be done each time photo browser is
-    // displayed. Photo browser objects cannot be re-used)
-    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-    // Set options
-    browser.displayActionButton = YES; // Show action button to allow sharing, copying, etc (defaults to YES)
-    browser.displaySelectionButtons = NO; // Whether selection buttons are shown on each image (defaults to NO)
-    browser.zoomPhotosToFill = YES; // Images that almost fill the screen will be initially zoomed to fill (defaults to YES)
-    browser.alwaysShowControls = NO; // Allows to control whether the bars and controls are always visible or whether they fade away to show the photo full (defaults to NO)
-    // Optionally set the current visible photo before displaying
-    [browser setCurrentPhotoIndex:indexPath.row];
-    
-    // Present
-    [self.navigationController pushViewController:browser animated:YES];
-}
-
-- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
-    return _photos.count;
-}
-
-- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
-    if (index < _photos.count) {
-        return [_photos objectAtIndex:index];
-    }
-    return nil;
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    CGFloat pageWidth = scrollView.frame.size.width;
+    NSInteger page = scrollView.contentOffset.x / pageWidth;
+    _mySegment.selectedSegmentIndex = page;
+    ListCollectionView * listView = [self.viewAry objectAtIndex:page];
+    [listView getData];
 }
 
 - (void)didReceiveMemoryWarning {

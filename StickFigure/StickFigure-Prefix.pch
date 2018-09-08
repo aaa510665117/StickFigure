@@ -12,7 +12,7 @@
 #import "Definition.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "HMSegmentedControl.h"
-#import "MWPhotoBrowser.h"
+#import "ZLPhotoActionSheet.h"
 #import "ZYHttpAPI.h"
 #import "HttpConfig.h"
 #import "AppDelegate.h"
@@ -22,6 +22,9 @@
 #import "IQKeyboardManager.h"
 #import <BmobSDK/Bmob.h>
 #import <Masonry/Masonry.h>
+#import "DiyMjRefresh.h"
+#import "DiyMjRefreshFooter.h"
+#import "MJRefresh.h"
 
 #import "UIViewController+RTRootNavigationController.h"
 #import "UIColor+App.h"

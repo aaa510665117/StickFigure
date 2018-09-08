@@ -17,15 +17,12 @@ PODS:
   - AFViewShaker (0.0.5)
   - BmobSDK (2.3.1)
   - CYLTabBarController (1.17.16)
-  - DACircularProgress (2.3.1)
+  - GPUImage (0.1.7)
   - HMSegmentedControl (1.5.5)
   - IQKeyboardManager (6.1.1)
   - Masonry (1.1.0)
-  - MBProgressHUD (0.9.2)
-  - MWPhotoBrowser (2.1.2):
-    - DACircularProgress (~> 2.3)
-    - MBProgressHUD (~> 0.9)
-    - "SDWebImage (!= 3.7.2, ~> 3.7)"
+  - MBProgressHUD (1.1.0)
+  - MJRefresh (3.1.15.7)
   - RTRootNavigationController (0.6.7):
     - RTRootNavigationController/Core (= 0.6.7)
   - RTRootNavigationController/Core (0.6.7)
@@ -36,6 +33,9 @@ PODS:
   - UMCAnalytics (5.5.1):
     - UMCCommon
   - UMCCommon (1.5.2)
+  - ZLPhotoBrowser (2.7.4):
+    - GPUImage
+    - SDWebImage
 
 DEPENDENCIES:
   - AFNetworking
@@ -45,11 +45,13 @@ DEPENDENCIES:
   - HMSegmentedControl
   - IQKeyboardManager
   - Masonry
-  - MWPhotoBrowser
+  - MBProgressHUD
+  - MJRefresh
   - RTRootNavigationController
   - SDWebImage (~> 3.8.1)
   - SVProgressHUD
   - UMCAnalytics
+  - ZLPhotoBrowser
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -57,35 +59,37 @@ SPEC REPOS:
     - AFViewShaker
     - BmobSDK
     - CYLTabBarController
-    - DACircularProgress
+    - GPUImage
     - HMSegmentedControl
     - IQKeyboardManager
     - Masonry
     - MBProgressHUD
-    - MWPhotoBrowser
+    - MJRefresh
     - RTRootNavigationController
     - SDWebImage
     - SVProgressHUD
     - UMCAnalytics
     - UMCCommon
+    - ZLPhotoBrowser
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AFViewShaker: fc201fa4c0030e3f4875b9f84ac0763828518b00
   BmobSDK: e0f9e4b451233a80af63a8ae4f2d239474bf567b
   CYLTabBarController: fb72c648645336953d522407892c4f61b7b3f898
-  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   HMSegmentedControl: f514c6dad47aa3065e0ed2e8046b73efc71221b9
   IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   RTRootNavigationController: d6aa6cbb78a3eaecea4f6e4df63f15dd887836b8
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UMCAnalytics: 0aff87e39008e2a650e5917430db0da2de2f8495
   UMCCommon: 4392868ac47ff1b101663106bb114ba616fabbad
+  ZLPhotoBrowser: b666fe8f68edc63dc5c4edccca071885b87553f5
 
-PODFILE CHECKSUM: 38bd6f020664871e048f2810fd70dfb770691a45
+PODFILE CHECKSUM: 9b5e06783eefad4037d9381aaa6c8335ba05033a
 
 COCOAPODS: 1.5.3
