@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ChoseTypeTableViewCell.h"
 #import "StickTypeCollectionViewCell.h"
 #import "RootViewController.h"
 #import "StickFigureImgObj.h"

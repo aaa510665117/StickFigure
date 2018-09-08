@@ -16,7 +16,9 @@
 {
     BOOL isViewDidAppear;
 }
+@property(nonatomic, assign) BOOL isEdit;
 @property(nonatomic, strong) NSMutableArray * showDataAry;
+@property(nonatomic, strong) UIButton *canelButton;
 @property (nonatomic, assign) long recordPage;
 
 @end
@@ -46,10 +48,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _canelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _canelButton.backgroundColor = [UIColor clearColor];
+    _canelButton.titleLabel.font = [UIFont systemFontOfSize: 16];
+    _canelButton.frame = CGRectMake(0, 0, 48, 40);
+    [_canelButton setTitle:@"编辑" forState:UIControlStateNormal];
+    [_canelButton addTarget:self action:@selector(clickCanelButton) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *canelButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_canelButton];
+    self.navigationItem.rightBarButtonItem = canelButtonItem;
+    
     isViewDidAppear = NO;
+    _isEdit = NO;
     [self addHeader];
     [self addFooter];
     _recordPage = 1;
+}
+
+-(void)clickCanelButton
+{
+    _isEdit = !_isEdit;
+    if(_isEdit)
+        [_canelButton setTitle:@"完成" forState:UIControlStateNormal];
+    else
+        [_canelButton setTitle:@"编辑" forState:UIControlStateNormal];
+    [_myCollectionView reloadData];
 }
 
 - (void)addHeader
@@ -57,7 +79,7 @@
     __weak typeof(self) vc = self;
     self.myCollectionView.mj_header = [DiyMjRefresh headerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
-        [vc getMyWork:vc.recordPage];
+        [vc getMyWork:1];
     }];
 }
 
@@ -139,6 +161,7 @@
 //每个UICollectionView展示的内容
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    __weak typeof(self) vc = self;
     static NSString *moreCellIdentifier = @"MyWorkCollectionViewCell";
     StickFigureImgObj * sfObj = [_showDataAry objectAtIndex:indexPath.row];
     MyWorkCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:moreCellIdentifier forIndexPath:indexPath];
@@ -149,7 +172,37 @@
         if(idx == 0)
             [cell.sfImg sd_setImageWithURL:[NSURL URLWithString:obj] placeholderImage:[UIImage imageNamed:@"groundImg"]];
     }];
+    if(_isEdit)
+        cell.editBtn.hidden = NO;
+    else
+        cell.editBtn.hidden = YES;
+    cell.clickDelDone = ^{
+        [vc deleteImg:indexPath.row];
+    };
     return cell;
+}
+
+-(void)deleteImg:(long)index
+{
+    __weak typeof(self) vc = self;
+    [ToolsFunction showHttpPromptView:self.view];
+    StickFigureImgObj * sfObj = [_showDataAry objectAtIndex:index];
+    BmobQuery *bquery = [StickFigureImgObj query];
+    [bquery getObjectInBackgroundWithId:sfObj.objectId block:^(BmobObject *object, NSError *error){
+        [ToolsFunction hideHttpPromptView:self.view];
+        if (error) {
+            //进行错误处理
+        }
+        else{
+            if (object) {
+                //异步删除object
+                [object deleteInBackground];
+                [vc.showDataAry removeObjectAtIndex:index];
+                [vc.myCollectionView reloadData];
+                [ToolsFunction showPromptViewWithString:@"已删除" background:nil timeDuration:1];
+            }
+        }
+    }];
 }
 
 #pragma mark --UICollectionViewDelegateFlowLayout

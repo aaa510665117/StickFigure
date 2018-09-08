@@ -10,4 +10,8 @@
 
 @implementation MyWorkCollectionViewCell
 
+- (IBAction)clickEditBtn:(id)sender {
+    if(_clickDelDone) _clickDelDone();
+}
+
 @end

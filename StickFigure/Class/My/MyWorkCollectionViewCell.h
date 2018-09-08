@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^ClickDelDone)(void);
+
 @interface MyWorkCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *sfImg;
+@property (weak, nonatomic) IBOutlet UIButton *editBtn;
+@property (nonatomic, copy) ClickDelDone clickDelDone;
 
 @end

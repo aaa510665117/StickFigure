@@ -245,6 +245,33 @@
     _lineColor = [UIColor whiteColor];
 }
 
+- (IBAction)clickPhoto:(id)sender {
+    //点击相册选取
+    // 跳转到相机或相册页面
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    UIImagePickerController * picker = [[UIImagePickerController alloc]init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = sourceType;
+    [[ToolsFunction getCurrentRootViewController] presentViewController:picker animated:YES completion:^{}];
+}
+
+#pragma mark imagePickerDelegte
+//UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //    [[UIApplication sharedApplication] setStatusBarHidden: NO];
+    [picker dismissViewControllerAnimated:YES completion:^{
+    }];
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    [self.drawImage setImage:image];
+    [picker dismissViewControllerAnimated:YES
+                               completion:nil];
+}
+
 - (IBAction)clickClean:(id)sender {
     //点击清空
     self.drawImage.image = [ToolsFunction imageWithColor:[UIColor whiteColor] size:CGSizeMake(UISCREEN_BOUNDS_SIZE.width, UISCREEN_BOUNDS_SIZE.height)];

@@ -94,6 +94,7 @@
     BmobUser *bUser = [BmobUser currentUser];
     if (!bUser) {
         [[AppDelegate appDelegate] showLoginNav];
+        return;
     }
     
     UserProfile *user = [[UserProfile alloc] initFromBmobObject:[BmobUser currentUser]];
@@ -131,6 +132,7 @@
     BmobUser *bUser = [BmobUser currentUser];
     if (!bUser) {
         [[AppDelegate appDelegate] showLoginNav];
+        return;
     }
     
     // 跳转到相机或相册页面

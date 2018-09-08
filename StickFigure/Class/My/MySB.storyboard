@@ -194,15 +194,29 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LEn-XJ-D4t">
                                                     <rect key="frame" x="20" y="10" width="109" height="118"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFc-dD-tMV">
+                                                    <rect key="frame" x="119" y="5" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="Zxh-Ng-UxK"/>
+                                                        <constraint firstAttribute="height" constant="20" id="iSW-IA-pLN"/>
+                                                    </constraints>
+                                                    <state key="normal" image="voice_delete"/>
+                                                    <connections>
+                                                        <action selector="clickEditBtn:" destination="AS5-10-7Qp" eventType="touchUpInside" id="egV-Cs-Mxh"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="NFc-dD-tMV" secondAttribute="trailing" constant="10" id="0xI-Kb-wEg"/>
                                             <constraint firstItem="LEn-XJ-D4t" firstAttribute="leading" secondItem="AS5-10-7Qp" secondAttribute="leading" constant="20" id="V7G-fA-bWs"/>
                                             <constraint firstItem="LEn-XJ-D4t" firstAttribute="top" secondItem="AS5-10-7Qp" secondAttribute="top" constant="10" id="dA4-Ep-Xtt"/>
                                             <constraint firstAttribute="bottom" secondItem="LEn-XJ-D4t" secondAttribute="bottom" constant="10" id="gzY-a7-Bc9"/>
+                                            <constraint firstItem="NFc-dD-tMV" firstAttribute="top" secondItem="AS5-10-7Qp" secondAttribute="top" constant="5" id="jap-LN-mG7"/>
                                             <constraint firstAttribute="trailing" secondItem="LEn-XJ-D4t" secondAttribute="trailing" constant="20" id="xuS-ht-93Q"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="editBtn" destination="NFc-dD-tMV" id="XRr-IA-Lb1"/>
                                             <outlet property="sfImg" destination="LEn-XJ-D4t" id="Hbj-Ty-b4T"/>
                                         </connections>
                                     </collectionViewCell>
@@ -233,5 +247,6 @@
     </scenes>
     <resources>
         <image name="noSexDoc" width="36" height="36"/>
+        <image name="voice_delete" width="30" height="30"/>
     </resources>
 </document>

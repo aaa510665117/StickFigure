@@ -50,7 +50,7 @@
     UIBarButtonItem *canelButtonItem = [[UIBarButtonItem alloc]initWithCustomView:canelButton];
     self.navigationItem.leftBarButtonItem = canelButtonItem;
     
-    _validateTextView.secureTextEntry = NO;
+    _validateTextView.secureTextEntry = YES;
     _isSeePassBtn.selected = NO;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];    

@@ -52,7 +52,7 @@
     __weak typeof(self) vc = self;
     self.myColletionView.mj_header = [DiyMjRefresh headerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
-        [vc getSFImg:vc.recordPage];
+        [vc getSFImg:1];
     }];
 }
 

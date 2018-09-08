@@ -25,14 +25,17 @@
                                         <rect key="frame" x="135" y="13" width="240" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xm3-YY-5Wo">
-                                                <rect key="frame" x="0.0" y="0.0" width="77" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="52.5" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="NRF-35-w2W"/>
+                                                </constraints>
                                                 <state key="normal" image="xiangpica"/>
                                                 <connections>
                                                     <action selector="clickEraser:" destination="Ghe-hF-r6J" eventType="touchUpInside" id="Qrx-va-GLx"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbx-xJ-FUI">
-                                                <rect key="frame" x="77" y="0.0" width="76.5" height="40"/>
+                                                <rect key="frame" x="120.5" y="0.0" width="52" height="40"/>
                                                 <state key="normal" image="shanchu"/>
                                                 <connections>
                                                     <action selector="clickClean:" destination="Ghe-hF-r6J" eventType="touchUpInside" id="Ps9-EE-Wfv"/>
@@ -40,29 +43,44 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTi-IU-rrA">
-                                                <rect key="frame" x="153.5" y="0.0" width="76.5" height="40"/>
+                                                <rect key="frame" x="172.5" y="0.0" width="67.5" height="40"/>
                                                 <state key="normal" image="baocun"/>
                                                 <connections>
                                                     <action selector="clickSave:" destination="Ghe-hF-r6J" eventType="touchUpInside" id="l3z-Ac-MIe"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHd-VB-a7b">
+                                                <rect key="frame" x="52.5" y="-2" width="68" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="43B-Sz-tUR"/>
+                                                </constraints>
+                                                <state key="normal" image="paizhao"/>
+                                                <connections>
+                                                    <action selector="clickEraser:" destination="Ghe-hF-r6J" eventType="touchUpInside" id="BTU-j5-SW3"/>
+                                                    <action selector="clickPhoto:" destination="Ghe-hF-r6J" eventType="touchUpInside" id="cch-k5-fEi"/>
+                                                    <action selector="clickPhoto:" destination="BZ3-jG-Mcc" eventType="touchUpInside" id="gZ2-RS-D7b"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="dTi-IU-rrA" secondAttribute="bottom" id="2dh-wB-y5k"/>
-                                            <constraint firstItem="zbx-xJ-FUI" firstAttribute="leading" secondItem="Xm3-YY-5Wo" secondAttribute="trailing" id="CsM-Yw-Urx"/>
                                             <constraint firstItem="zbx-xJ-FUI" firstAttribute="height" secondItem="Xm3-YY-5Wo" secondAttribute="height" id="DEu-LZ-o0s"/>
                                             <constraint firstItem="dTi-IU-rrA" firstAttribute="height" secondItem="Xm3-YY-5Wo" secondAttribute="height" id="IIe-2i-kjC"/>
                                             <constraint firstItem="Xm3-YY-5Wo" firstAttribute="top" secondItem="E83-H5-92C" secondAttribute="top" id="Kjb-0I-JbU"/>
-                                            <constraint firstAttribute="trailing" secondItem="dTi-IU-rrA" secondAttribute="trailing" constant="10" id="LJg-SL-KO5"/>
+                                            <constraint firstAttribute="trailing" secondItem="dTi-IU-rrA" secondAttribute="trailing" id="LJg-SL-KO5"/>
                                             <constraint firstItem="Xm3-YY-5Wo" firstAttribute="leading" secondItem="E83-H5-92C" secondAttribute="leading" id="Lom-bq-y0l"/>
+                                            <constraint firstItem="vHd-VB-a7b" firstAttribute="leading" secondItem="Xm3-YY-5Wo" secondAttribute="trailing" id="NHU-WS-65h"/>
                                             <constraint firstAttribute="height" constant="40" id="P4o-gc-otL"/>
+                                            <constraint firstItem="zbx-xJ-FUI" firstAttribute="leading" secondItem="vHd-VB-a7b" secondAttribute="trailing" id="PZf-YS-ETN"/>
                                             <constraint firstItem="dTi-IU-rrA" firstAttribute="leading" secondItem="zbx-xJ-FUI" secondAttribute="trailing" id="R4C-ll-GwQ"/>
+                                            <constraint firstItem="vHd-VB-a7b" firstAttribute="width" secondItem="Xm3-YY-5Wo" secondAttribute="width" constant="15" id="RBH-VR-4Hi"/>
                                             <constraint firstItem="zbx-xJ-FUI" firstAttribute="top" secondItem="E83-H5-92C" secondAttribute="top" id="UQH-c9-JaY"/>
                                             <constraint firstAttribute="bottom" secondItem="Xm3-YY-5Wo" secondAttribute="bottom" id="YuW-79-TJz"/>
+                                            <constraint firstItem="vHd-VB-a7b" firstAttribute="centerY" secondItem="E83-H5-92C" secondAttribute="centerY" id="aaa-DA-xr2"/>
                                             <constraint firstAttribute="bottom" secondItem="zbx-xJ-FUI" secondAttribute="bottom" id="h6Z-lB-YPj"/>
                                             <constraint firstItem="zbx-xJ-FUI" firstAttribute="width" secondItem="Xm3-YY-5Wo" secondAttribute="width" id="jyt-XJ-HSz"/>
-                                            <constraint firstItem="dTi-IU-rrA" firstAttribute="width" secondItem="Xm3-YY-5Wo" secondAttribute="width" id="mR0-eM-meX"/>
+                                            <constraint firstItem="dTi-IU-rrA" firstAttribute="width" secondItem="Xm3-YY-5Wo" secondAttribute="width" constant="15" id="mR0-eM-meX"/>
                                             <constraint firstItem="dTi-IU-rrA" firstAttribute="top" secondItem="E83-H5-92C" secondAttribute="top" id="sws-xP-Oav"/>
                                         </constraints>
                                     </view>
@@ -263,6 +281,7 @@
     <resources>
         <image name="arrow_down2" width="13" height="8"/>
         <image name="baocun" width="93" height="44"/>
+        <image name="paizhao" width="93" height="44"/>
         <image name="shanchu" width="26" height="26"/>
         <image name="xiangpica" width="26" height="26"/>
     </resources>

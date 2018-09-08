@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, actionOpen) {
 
 typedef void(^ClickSaveDone)(UIImage *);
 
-@interface HBDrawingBoard : UIView
+@interface HBDrawingBoard : UIView<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, assign) BOOL ise;
 @property (nonatomic, strong) UIColor *lineColor;//画笔颜色

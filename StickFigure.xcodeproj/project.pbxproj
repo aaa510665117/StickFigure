@@ -15,7 +15,6 @@
 		1AE7FD401F18B466002666DA /* StickFigureUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD3F1F18B466002666DA /* StickFigureUITests.m */; };
 		1AE7FD4E1F18BDC2002666DA /* StickFigure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE7FD4D1F18BDC2002666DA /* StickFigure.storyboard */; };
 		1AE7FD511F18BDDE002666DA /* StickFigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD501F18BDDE002666DA /* StickFigureViewController.m */; };
-		1AE7FD551F18C051002666DA /* ChoseTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD541F18C051002666DA /* ChoseTypeTableViewCell.m */; };
 		1AE7FD581F18C46C002666DA /* StickTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD571F18C46C002666DA /* StickTypeCollectionViewCell.m */; };
 		DE83A245213E117400DC887D /* SEUpDownAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83A240213E117400DC887D /* SEUpDownAPI.m */; };
 		DE83A246213E117400DC887D /* ZYHttpAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83A241213E117400DC887D /* ZYHttpAPI.m */; };
@@ -95,8 +94,6 @@
 		1AE7FD4D1F18BDC2002666DA /* StickFigure.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StickFigure.storyboard; sourceTree = "<group>"; };
 		1AE7FD4F1F18BDDE002666DA /* StickFigureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickFigureViewController.h; sourceTree = "<group>"; };
 		1AE7FD501F18BDDE002666DA /* StickFigureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickFigureViewController.m; sourceTree = "<group>"; };
-		1AE7FD531F18C051002666DA /* ChoseTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoseTypeTableViewCell.h; sourceTree = "<group>"; };
-		1AE7FD541F18C051002666DA /* ChoseTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoseTypeTableViewCell.m; sourceTree = "<group>"; };
 		1AE7FD561F18C46C002666DA /* StickTypeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickTypeCollectionViewCell.h; sourceTree = "<group>"; };
 		1AE7FD571F18C46C002666DA /* StickTypeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickTypeCollectionViewCell.m; sourceTree = "<group>"; };
 		3DF896D53A54B131D97C11D1 /* libPods-StickFigure.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StickFigure.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,8 +275,6 @@
 		1AE7FD521F18C02E002666DA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1AE7FD531F18C051002666DA /* ChoseTypeTableViewCell.h */,
-				1AE7FD541F18C051002666DA /* ChoseTypeTableViewCell.m */,
 				1AE7FD561F18C46C002666DA /* StickTypeCollectionViewCell.h */,
 				1AE7FD571F18C46C002666DA /* StickTypeCollectionViewCell.m */,
 				DE98CBF62143779F00F351F4 /* ListCollectionView.h */,
@@ -773,7 +768,6 @@
 				DEA92B63214231A400D90F3B /* LoginManagerModel.m in Sources */,
 				DEEF626021412EBC003ECBB5 /* HBDrawPoint.m in Sources */,
 				DEDF672F2142C01800B0F48B /* MyWorkCollectionViewCell.m in Sources */,
-				1AE7FD551F18C051002666DA /* ChoseTypeTableViewCell.m in Sources */,
 				DE98CBF22143671C00F351F4 /* DiyMjRefresh.m in Sources */,
 				DEEF62432140F4EC003ECBB5 /* ToolsFunction.m in Sources */,
 				DEEF623E2140F4B8003ECBB5 /* NSDictionary+Accessors.m in Sources */,
@@ -930,7 +924,7 @@
 				GCC_PREFIX_HEADER = "StickFigure/StickFigure-Prefix.pch";
 				INFOPLIST_FILE = StickFigure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-01.StickFigure";
+				PRODUCT_BUNDLE_IDENTIFIER = com.StickFigure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -944,7 +938,7 @@
 				GCC_PREFIX_HEADER = "StickFigure/StickFigure-Prefix.pch";
 				INFOPLIST_FILE = StickFigure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-01.StickFigure";
+				PRODUCT_BUNDLE_IDENTIFIER = com.StickFigure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
