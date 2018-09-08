@@ -85,6 +85,11 @@
 
 -(void)uploadImg
 {
+    if(_imgAry.count == 0){
+        [ToolsFunction showPromptViewWithString:@"请先画几部吧" background:nil timeDuration:1];
+        return;
+    }
+    
     __weak typeof(self)vc = self;
     NSMutableArray * temp = [[NSMutableArray alloc]init];
     [_imgAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -138,11 +143,17 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *moreCellIdentifier = @"UpMyCollectionViewCell";
+    __weak typeof(self) vc = self;
     UpMyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:moreCellIdentifier forIndexPath:indexPath];
     cell.imageView.layer.borderColor = [UIColor orangeColor].CGColor;
     cell.imageView.layer.borderWidth = 1.0f;
     cell.imageView.layer.cornerRadius = 6.0;
     cell.imageView.image = [_imgAry objectAtIndex:indexPath.row];
+    cell.tipsLab.text = [NSString stringWithFormat:@"第%ld步",indexPath.row+1];
+    cell.clickDelDone = ^{
+        [vc.imgAry removeObjectAtIndex:indexPath.row];
+        [vc.myCollectionView reloadData];
+    };
     return cell;
 }
 

@@ -111,6 +111,7 @@
     bquery.limit = MAX_SERVICE_PAGE;
     bquery.skip = MAX_SERVICE_PAGE * (page-1);
     [bquery whereKey:@"userInfo" equalTo:bUser];
+    [bquery orderByDescending:@"updatedAt"];
     //查找GameScore表里面id为0c6db13c的数据
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         NSMutableArray * temp = [[NSMutableArray alloc]init];
@@ -224,7 +225,7 @@
     StickFigureImgObj * sfObj = [_showDataAry objectAtIndex:indexPath.row];
     ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
     actionSheet.backgroundColor = [UIColor whiteColor];
-    actionSheet.sender = [ToolsFunction getCurrentRootViewController];
+    actionSheet.sender = self;
     NSMutableArray * tempPhoto = [[NSMutableArray alloc]init];
     [sfObj.imageGroup enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSDictionary * dic = GetDictForPreviewPhoto(obj, ZLPreviewPhotoTypeURLImage);

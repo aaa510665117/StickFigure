@@ -38,7 +38,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.frame = CGRectMake(0, 0, UISCREEN_BOUNDS_SIZE.width, UISCREEN_BOUNDS_SIZE.height-64-60-65);
+    self.frame = CGRectMake(0, 0, UISCREEN_BOUNDS_SIZE.width, UISCREEN_BOUNDS_SIZE.height-64-60-65-25);
     
     self.backgroundColor = [UIColor whiteColor];
     

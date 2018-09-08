@@ -10,4 +10,8 @@
 
 @implementation UpMyCollectionViewCell
 
+- (IBAction)clickDeleteBtn:(id)sender {
+    if(_clickDelDone) _clickDelDone();
+}
+
 @end

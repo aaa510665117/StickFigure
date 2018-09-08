@@ -81,6 +81,7 @@
     bquery.limit = MAX_SERVICE_PAGE;
     bquery.skip = MAX_SERVICE_PAGE * (page-1);
     [bquery whereKey:@"type" equalTo:[NSString stringWithFormat:@"%d",_sftype]];
+    [bquery orderByDescending:@"updatedAt"];
     //查找GameScore表里面id为0c6db13c的数据
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         NSMutableArray * temp = [[NSMutableArray alloc]init];

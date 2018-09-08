@@ -11,6 +11,6 @@
 @interface UpMyStickViewController : RootViewController
 
 @property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
-@property (nonatomic, strong) NSArray * imgAry;
+@property (nonatomic, strong) NSMutableArray * imgAry;
 
 @end

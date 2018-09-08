@@ -17,6 +17,7 @@
 }
 @property (nonatomic, strong) NSArray *colors;
 @property (nonatomic, strong) NSArray *colorsModel;
+@property (weak, nonatomic) IBOutlet UILabel *tipsLab;
 @property (weak, nonatomic) IBOutlet HBColorBall *ballView;
 @property (weak, nonatomic) IBOutlet UISlider *sliderView;
 @property (weak, nonatomic) IBOutlet HBDrawingBoard *drawView;
@@ -129,6 +130,7 @@
         UIBarButtonItem *upButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightView];
         self.navigationItem.rightBarButtonItem = upButtonItem;
     }
+    _tipsLab.text = [NSString stringWithFormat:@"第%ld步",_imgAry.count+1];
     isViewWillAppear = YES;
 }
 
@@ -196,6 +198,7 @@
 - (void)addAnimatedWithFrame:(UIImage *)img {
     // 该部分动画 以self.view为参考系进行
     [self.imgAry addObject:img];
+    _tipsLab.text = [NSString stringWithFormat:@"第%ld步",_imgAry.count+1];
     UIImageView * temp = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 50, 30)];
     temp.image = img;
     [_drawView addSubview:temp];
