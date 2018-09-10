@@ -924,7 +924,7 @@
 				GCC_PREFIX_HEADER = "StickFigure/StickFigure-Prefix.pch";
 				INFOPLIST_FILE = StickFigure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.StickFigure;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zy.StickFigure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -938,7 +938,7 @@
 				GCC_PREFIX_HEADER = "StickFigure/StickFigure-Prefix.pch";
 				INFOPLIST_FILE = StickFigure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.StickFigure;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zy.StickFigure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

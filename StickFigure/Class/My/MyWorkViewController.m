@@ -170,7 +170,7 @@
     cell.sfImg.layer.borderWidth = 1.0f;
     cell.sfImg.layer.cornerRadius = 6.0;
     [sfObj.imageGroup enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if(idx == 0)
+        if(idx == sfObj.imageGroup.count-1)
             [cell.sfImg sd_setImageWithURL:[NSURL URLWithString:obj] placeholderImage:[UIImage imageNamed:@"groundImg"]];
     }];
     if(_isEdit)
@@ -200,10 +200,15 @@
                 [object deleteInBackground];
                 [vc.showDataAry removeObjectAtIndex:index];
                 [vc.myCollectionView reloadData];
-                [ToolsFunction showPromptViewWithString:@"已删除" background:nil timeDuration:1];
+                //删除素材文件
+                [BmobFile filesDeleteBatchWithArray:sfObj.imageGroup resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
+                    [ToolsFunction showPromptViewWithString:@"已删除" background:nil timeDuration:1];
+                }];
             }
         }
     }];
+    
+    
 }
 
 #pragma mark --UICollectionViewDelegateFlowLayout
