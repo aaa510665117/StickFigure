@@ -95,7 +95,7 @@
     NSMutableArray * temp = [[NSMutableArray alloc]init];
     [_imgAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSMutableDictionary * imgDic = [[NSMutableDictionary alloc]init];
-        [imgDic setValue:[NSString stringWithFormat:@"%@-%ld.png",[BmobUser currentUser].username,idx] forKey:@"filename"];
+        [imgDic setValue:[NSString stringWithFormat:@"%@-%lu.png",[BmobUser currentUser].username,(unsigned long)idx] forKey:@"filename"];
         NSData *data = UIImagePNGRepresentation(obj);
         [imgDic setValue:data forKey:@"data"];
         [temp addObject:imgDic];

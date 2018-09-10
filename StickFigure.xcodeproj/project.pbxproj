@@ -607,8 +607,7 @@
 				TargetAttributes = {
 					1AE7FD161F18B466002666DA = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = VB8H46N7M3;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					1AE7FD2F1F18B466002666DA = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -920,12 +919,15 @@
 			baseConfigurationReference = 498D707326E41C64291E0639 /* Pods-StickFigure.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VB8H46N7M3;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "StickFigure/StickFigure-Prefix.pch";
 				INFOPLIST_FILE = StickFigure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zy.StickFigure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -934,12 +936,16 @@
 			baseConfigurationReference = 800C73853689F6A2CD59C59E /* Pods-StickFigure.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VB8H46N7M3;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = CF82G8A9HM;
 				GCC_PREFIX_HEADER = "StickFigure/StickFigure-Prefix.pch";
 				INFOPLIST_FILE = StickFigure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zy.StickFigure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "64b03c64-3ab9-48a6-8cc1-2c57c1d79185";
+				PROVISIONING_PROFILE_SPECIFIER = "StickFigure Distribution";
 			};
 			name = Release;
 		};
