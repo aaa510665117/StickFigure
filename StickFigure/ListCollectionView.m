@@ -194,6 +194,7 @@
     //查看图片
     StickFigureImgObj * sfObj = [_showDataAry objectAtIndex:indexPath.row];
     ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
+    actionSheet.configuration.navBarColor = [UIColor appNavigationColor];
     actionSheet.backgroundColor = [UIColor whiteColor];
     actionSheet.sender = [ToolsFunction getCurrentRootViewController];
     NSMutableArray * tempPhoto = [[NSMutableArray alloc]init];

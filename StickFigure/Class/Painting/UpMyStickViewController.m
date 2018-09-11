@@ -96,7 +96,7 @@
     [_imgAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSMutableDictionary * imgDic = [[NSMutableDictionary alloc]init];
         [imgDic setValue:[NSString stringWithFormat:@"%@-%lu.png",[BmobUser currentUser].username,(unsigned long)idx] forKey:@"filename"];
-        NSData *data = UIImagePNGRepresentation(obj);
+        NSData *data = UIImageJPEGRepresentation(obj, 0.6); //压缩
         [imgDic setValue:data forKey:@"data"];
         [temp addObject:imgDic];
     }];
