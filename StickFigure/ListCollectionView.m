@@ -81,7 +81,9 @@
     bquery.limit = MAX_SERVICE_PAGE;
     bquery.skip = MAX_SERVICE_PAGE * (page-1);
     [bquery whereKey:@"type" equalTo:[NSString stringWithFormat:@"%d",_sftype]];
-    [bquery orderByDescending:@"updatedAt"];
+//    [bquery orderByDescending:@"updatedAt"];
+    [bquery orderByDescending:@"likeNum"];
+
     //查找GameScore表里面id为0c6db13c的数据
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         NSMutableArray * temp = [[NSMutableArray alloc]init];
@@ -154,11 +156,36 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     StickTypeCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"StickTypeCollectionViewCell" forIndexPath:indexPath];
+    __weak typeof(cell) weakCell = cell;
     StickFigureImgObj * sfObj = [_showDataAry objectAtIndex:indexPath.row];
     [sfObj.imageGroup enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if(idx == sfObj.imageGroup.count-1)
             [cell.stickImg sd_setImageWithURL:[NSURL URLWithString:obj] placeholderImage:[UIImage imageNamed:@"groundImg"]];
     }];
+    [cell.likeBtn setImage:[UIImage imageNamed:@"circleGoodCheckImg"] forState:UIControlStateNormal];
+    cell.likeNumLab.text = (sfObj.likeNum == nil) ? @"":[NSString stringWithFormat:@"%@",sfObj.likeNum];
+    
+    //关联对象表 查询赞过的所有人
+    BmobQuery *bquery = [BmobQuery queryWithClassName:@"_User"];
+    BmobObject *post = [BmobObject objectWithoutDataWithClassName:@"StickFigureImgObj" objectId:sfObj.objectId];
+    [bquery whereObjectKey:@"likes" relatedTo:post];
+    
+    cell.clickLikeDone = ^{
+        //修改赞的个数字段
+        StickFigureImgObj *stickFigureObj = [[StickFigureImgObj alloc] init];
+        stickFigureObj = sfObj;
+        if(sfObj.likeNum == nil || [sfObj.likeNum integerValue] == 0){
+            stickFigureObj.likeNum = [NSNumber numberWithInteger:1];
+        }else{
+            NSUInteger num = [sfObj.likeNum intValue]+1;
+            stickFigureObj.likeNum = [NSNumber numberWithInteger:num];
+        }
+        [stickFigureObj sub_updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+            if(isSuccessful){
+                weakCell.likeNumLab.text = [NSString stringWithFormat:@"%@",stickFigureObj.likeNum];
+            }
+        }];
+    };
     return cell;
 }
 

@@ -21,6 +21,7 @@ typedef enum{
 @property(nonatomic, strong) BmobUser * userInfo;
 @property(nonatomic, strong) NSString * type;
 @property(nonatomic, strong) NSArray * imageGroup;
+@property(nonatomic, strong) NSNumber * likeNum;
 
 +(NSArray *)getTypeAry;
 

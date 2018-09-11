@@ -32,9 +32,16 @@
 #import "UIViewController+ColorState.h"
 #import "CYLPlusButtonSubclass.h"
 #import "NSDictionary+Accessors.h"
+#import "NSString+Code.h"
 
-//#define Service_Local  @"http://192.168.20.32/StickFigure/"
-#define Service_Local @"https://stickfigure-1-1253886669.cos.ap-beijing.myqcloud.com/StickFigure/"
+//#define Service_Local @"https://stickfigure-1-1253886669.cos.ap-beijing.myqcloud.com/StickFigure/"
+
+//是否是iPhone X
+#define is_iPhoneX          ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+//状态栏高度
+#define StatusBarHeight     (is_iPhoneX ? 44.f : 20.f)
+// 导航高度
+#define NavigationBarHeight 44.f
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.

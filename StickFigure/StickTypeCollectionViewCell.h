@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^ClickLikeDone)(void);
+
 @interface StickTypeCollectionViewCell : UICollectionViewCell
 
 @property (strong, nonatomic) UIImageView *stickImg;
+@property (strong, nonatomic) UIButton *likeBtn;
+@property (strong, nonatomic) UILabel *likeNumLab;
+
+@property (nonatomic, copy) ClickLikeDone clickLikeDone;
 
 @end

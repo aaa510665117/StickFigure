@@ -62,7 +62,7 @@
         UserProfile *user = [[UserProfile alloc] initFromBmobObject:[BmobUser currentUser]];
         //进行操作
         _userNameLab.text = bUser.username;
-        _keshiLab.text = [NSString stringWithFormat:@"昵称:%@",user.nickName];
+        _keshiLab.text = [NSString stringWithFormat:@"昵称:%@",[NSString isStringNull:user.nickName]];
         [vc.userImg sd_setImageWithURL:[NSURL URLWithString:user.userImage] placeholderImage:[UIImage imageNamed:@"noSexDoc"]];
         [_registerBtn setTitle:@"注销" forState:UIControlStateNormal];
 
@@ -190,6 +190,7 @@
     BmobUser *bUser = [BmobUser currentUser];
     if (!bUser) {
         [[AppDelegate appDelegate] showLoginNav];
+        return;
     }
     
     MyWorkViewController * myWork = [[MyWorkViewController alloc]init];

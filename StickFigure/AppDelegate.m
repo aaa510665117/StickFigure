@@ -34,7 +34,7 @@
     _loginManager = [[LoginManagerModel alloc]init];
 
     //Bmob
-    [Bmob registerWithAppKey:@"f13f2de697a3e7d165f9572f77af51bc"];
+    [Bmob registerWithAppKey:BMOB_KEY];
     
     [UMConfigure initWithAppkey:Umeng_APPKey channel:@"App Store"];
     // 统计组件配置

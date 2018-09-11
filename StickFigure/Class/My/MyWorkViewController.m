@@ -229,18 +229,17 @@
     //查看图片
     StickFigureImgObj * sfObj = [_showDataAry objectAtIndex:indexPath.row];
     ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
+    actionSheet.configuration.navBarColor = [UIColor appNavigationColor];
     actionSheet.backgroundColor = [UIColor whiteColor];
     actionSheet.sender = self;
     NSMutableArray * tempPhoto = [[NSMutableArray alloc]init];
     [sfObj.imageGroup enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSDictionary * dic = GetDictForPreviewPhoto(obj, ZLPreviewPhotoTypeURLImage);
-//        NSDictionary * dic = GetDictForPreviewPhoto([NSURL URLWithString:obj], ZLPreviewPhotoTypeURLImage);
         [tempPhoto addObject:dic];
     }];
     [actionSheet previewPhotos:tempPhoto index:0 hideToolBar:YES complete:^(NSArray * _Nonnull photos) {
     }];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
