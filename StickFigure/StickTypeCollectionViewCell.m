@@ -18,7 +18,8 @@
         _stickImg.backgroundColor = [UIColor whiteColor];
         _stickImg.translatesAutoresizingMaskIntoConstraints = NO;
         _stickImg.layer.borderWidth = 2.0f;
-        _stickImg.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        _stickImg.layer.borderColor = [UIColor appNavigationColor].CGColor;
+        _stickImg.layer.cornerRadius = 6.0;
     }
     return _stickImg;
 }
@@ -58,8 +59,8 @@
     if (self) {
         [self addSubview:self.stickImg];
         [_stickImg mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.contentView.mas_left).with.offset(10);
-            make.right.equalTo(self.contentView.mas_right).with.offset(-10);
+            make.left.equalTo(self.contentView.mas_left).with.offset(5);
+            make.right.equalTo(self.contentView.mas_right).with.offset(-5);
             make.top.equalTo(self.contentView.mas_top).with.offset(10);
             make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-10);
         }];
@@ -67,7 +68,7 @@
         [self addSubview:self.likeNumLab];
         _likeNumLab.text = @"2";
         [_likeNumLab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self.contentView.mas_right).with.offset(-13);
+            make.right.equalTo(self.contentView.mas_right).with.offset(-10);
             make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-12);
         }];
         

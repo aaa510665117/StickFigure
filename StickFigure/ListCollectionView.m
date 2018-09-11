@@ -122,13 +122,13 @@
 //定义每个UICollectionView 的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((UISCREEN_BOUNDS_SIZE.width)/3 , (UISCREEN_BOUNDS_SIZE.width-40)/3);
+    return CGSizeMake((UISCREEN_BOUNDS_SIZE.width-20)/3 , (UISCREEN_BOUNDS_SIZE.width)/3);
 }
 
 //定义UICollectionView 的边距（返回UIEdgeInsets：上、左、下、右）
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(0, 0, 0, 0);
+    return UIEdgeInsetsMake(0, 10, 0, 10);
 }
 
 //定义UICollectionView 每行内部cell item的间距
