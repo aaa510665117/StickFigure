@@ -87,13 +87,9 @@
 - (void)clickPublish {
     
     //画图
-    if([[AppDelegate appDelegate] isLogin]){
-        PaintingViewController * paint = [[PaintingViewController alloc]init];
-        UINavigationController * paintNav = [[UINavigationController alloc]initWithRootViewController:paint];
-        [[ToolsFunction getCurrentRootViewController].navigationController  presentViewController:paintNav animated:YES completion:nil];
-    }else{
-        [[AppDelegate appDelegate] showLoginNav];
-    }
+    PaintingViewController * paint = [[PaintingViewController alloc]init];
+    UINavigationController * paintNav = [[UINavigationController alloc]initWithRootViewController:paint];
+    [[ToolsFunction getCurrentRootViewController].navigationController  presentViewController:paintNav animated:YES completion:nil];
 }
 
 +(NSUInteger)indexOfPlusButtonInTabBar

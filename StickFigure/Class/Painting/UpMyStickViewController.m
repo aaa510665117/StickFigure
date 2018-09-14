@@ -85,6 +85,11 @@
 
 -(void)uploadImg
 {
+    if(![[AppDelegate appDelegate] isLogin]){
+        [[AppDelegate appDelegate] showLoginNav];
+        return;
+    }
+    
     if(_imgAry.count == 0){
         [ToolsFunction showPromptViewWithString:@"请先画几部吧" background:nil timeDuration:1];
         return;
