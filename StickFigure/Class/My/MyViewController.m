@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *softVerLab;
 @property (weak, nonatomic) IBOutlet UIButton *registerBtn;
 @property (weak, nonatomic) IBOutlet UIView *myWorkItem;
+@property (weak, nonatomic) IBOutlet UIView *clearCache;
+@property (weak, nonatomic) IBOutlet UILabel *cacheSizeLab;
 
 
 @end
@@ -50,6 +52,8 @@
     [_userImg addGestureRecognizer:imgGesture];
     UITapGestureRecognizer * myWorkGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickMyWork)];
     [_myWorkItem addGestureRecognizer:myWorkGesture];
+    UITapGestureRecognizer * clearCacheGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickClearCache)];
+    [_clearCache addGestureRecognizer:clearCacheGesture];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -82,6 +86,9 @@
         _keshiLab.text = @"";
         [_registerBtn setTitle:@"登录" forState:UIControlStateNormal];
     }
+    
+    float tmpSize = [[SDImageCache sharedImageCache] getSize];
+    _cacheSizeLab.text = [NSString stringWithFormat:@"%.1fM",tmpSize/1024/1024];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -196,6 +203,23 @@
     MyWorkViewController * myWork = [[MyWorkViewController alloc]init];
     myWork.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:myWork animated:YES];
+}
+
+-(void)clickClearCache
+{
+    //清除缓存
+    __weak typeof(self)vc = self;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"确定要清除缓存吗？" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    //增加确定按钮；
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[SDImageCache sharedImageCache] clearDisk];
+        [ToolsFunction showPromptViewWithString:@"清除成功" background:nil timeDuration:1];
+        float tmpSize = [[SDImageCache sharedImageCache] getSize];
+        vc.cacheSizeLab.text = [NSString stringWithFormat:@"%.1fM",tmpSize/1024/1024];
+    }]];
+    [[ToolsFunction getCurrentRootViewController] presentViewController:alertController animated:true completion:nil];
 }
 
 - (IBAction)clickSignOutBtn:(id)sender {

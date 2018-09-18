@@ -171,7 +171,9 @@
     cell.sfImg.layer.cornerRadius = 6.0;
     [sfObj.imageGroup enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if(idx == sfObj.imageGroup.count-1)
-            [cell.sfImg sd_setImageWithURL:[NSURL URLWithString:obj] placeholderImage:[UIImage imageNamed:@"groundImg"]];
+            [cell.sfImg sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:obj] placeholderImage:[UIImage imageNamed:@"groundImg"] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            }];
     }];
     if(_isEdit)
         cell.editBtn.hidden = NO;
