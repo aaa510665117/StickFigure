@@ -21,6 +21,7 @@ target ‘StickFigure' do
   pod 'Masonry'
   pod 'MJRefresh'
   pod 'ZLPhotoBrowser'
+  pod 'MWPhotoBrowser'
 
 end
 

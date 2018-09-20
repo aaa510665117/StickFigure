@@ -10,7 +10,7 @@
 
 #define MAX_SERVICE_PAGE 20
 
-@interface ListCollectionView()
+@interface ListCollectionView()<MWPhotoBrowserDelegate>
 
 @property(nonatomic, strong) NSMutableArray * showDataAry;
 @property (nonatomic, assign) long recordPage;
@@ -202,7 +202,6 @@
     NSMutableArray * tempPhoto = [[NSMutableArray alloc]init];
     [sfObj.imageGroup enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSDictionary * dic = GetDictForPreviewPhoto(obj, ZLPreviewPhotoTypeURLImage);
-        //        NSDictionary * dic = GetDictForPreviewPhoto([NSURL URLWithString:obj], ZLPreviewPhotoTypeURLImage);
         [tempPhoto addObject:dic];
     }];
     [actionSheet previewPhotos:tempPhoto index:0 hideToolBar:YES complete:^(NSArray * _Nonnull photos) {

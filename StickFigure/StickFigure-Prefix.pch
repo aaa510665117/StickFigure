@@ -25,6 +25,7 @@
 #import "DiyMjRefresh.h"
 #import "DiyMjRefreshFooter.h"
 #import "MJRefresh.h"
+#import "MWPhotoBrowser.h"
 
 #import "UIViewController+RTRootNavigationController.h"
 #import "UIColor+App.h"
