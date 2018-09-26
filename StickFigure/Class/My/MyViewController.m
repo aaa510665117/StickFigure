@@ -8,8 +8,9 @@
 
 #import "MyViewController.h"
 #import "MyWorkViewController.h"
+#import <StoreKit/StoreKit.h>
 
-@interface MyViewController ()
+@interface MyViewController ()<SKStoreProductViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *userImg;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLab;
@@ -19,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UIView *myWorkItem;
 @property (weak, nonatomic) IBOutlet UIView *clearCache;
 @property (weak, nonatomic) IBOutlet UILabel *cacheSizeLab;
+@property (weak, nonatomic) IBOutlet UIView *aboutMeView;
+@property (weak, nonatomic) IBOutlet UIButton *supportBtn;
+
 
 
 @end
@@ -54,6 +58,12 @@
     [_myWorkItem addGestureRecognizer:myWorkGesture];
     UITapGestureRecognizer * clearCacheGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickClearCache)];
     [_clearCache addGestureRecognizer:clearCacheGesture];
+    UITapGestureRecognizer * aboutMeGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickaboutMe)];
+    [_aboutMeView addGestureRecognizer:aboutMeGesture];
+    
+    _supportBtn.layer.borderWidth = 1.0f;
+    _supportBtn.layer.borderColor = [UIColor colorWithRed:237/255.0 green:237/255.0 blue:237/255.0 alpha:1.0].CGColor;
+    _supportBtn.layer.cornerRadius = 6.0f;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -202,6 +212,7 @@
     
     MyWorkViewController * myWork = [[MyWorkViewController alloc]init];
     myWork.hidesBottomBarWhenPushed = YES;
+    myWork.bUser = bUser;
     [self.navigationController pushViewController:myWork animated:YES];
 }
 
@@ -220,6 +231,44 @@
         vc.cacheSizeLab.text = [NSString stringWithFormat:@"%.1fM",tmpSize/1024/1024];
     }]];
     [[ToolsFunction getCurrentRootViewController] presentViewController:alertController animated:true completion:nil];
+}
+
+-(void)clickaboutMe
+{
+    [SKStoreReviewController requestReview];
+
+//    SKStoreProductViewController *storeProductViewContorller = [[SKStoreProductViewController alloc] init];
+//    // 设置代理请求为当前控制器本身
+//    storeProductViewContorller.delegate=self;
+//    [storeProductViewContorller loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:@"1435758672"}completionBlock:^(BOOL result,NSError*error)   {
+//        if(error)  {
+//            NSLog(@"error %@ with userInfo %@",error,[error userInfo]);
+//        }else{
+//            // 模态弹出appstore
+//            [self presentViewController:storeProductViewContorller animated:YES completion:nil];
+//        }
+//    }];
+}
+
+//AppStore取消按钮监听
+- (void)productViewControllerDidFinish:(SKStoreProductViewController*)viewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)clickSupportBtn:(id)sender {
+    NSString *openURL = @"https://github.com/aaa510665117/StickFigure/blob/master/README.md";
+    NSURL *URL = [NSURL URLWithString:openURL];
+    /**
+     ios 10 以后使用  openURL: options: completionHandler:
+     这个函数异步执行，但在主队列中调用 completionHandler 中的回调
+     openURL:打开的网址
+     options:用来校验url和applicationConfigure是否配置正确，是否可用。
+     唯一可用@{UIApplicationOpenURLOptionUniversalLinksOnly:@YES}。
+     不需要不能置nil，需@{}为置空。
+     ompletionHandler:如不需要可置nil
+     **/
+    [[UIApplication sharedApplication]openURL:URL options:@{} completionHandler:^(BOOL success) {
+    }];
 }
 
 - (IBAction)clickSignOutBtn:(id)sender {

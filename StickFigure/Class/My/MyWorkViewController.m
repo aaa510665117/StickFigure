@@ -15,6 +15,7 @@
 @interface MyWorkViewController ()
 {
     BOOL isViewDidAppear;
+    BOOL isViewWillAppear;
 }
 @property(nonatomic, assign) BOOL isEdit;
 @property(nonatomic, strong) NSMutableArray * showDataAry;
@@ -40,7 +41,7 @@
     self = [storyboard instantiateViewControllerWithIdentifier:@"MyWorkViewController"];
     if (self) {
         // Custom initialization
-        self.title = @"我的作品";
+        self.title = @"作者作品";
     }
     return self;
 }
@@ -48,20 +49,43 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _canelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _canelButton.backgroundColor = [UIColor clearColor];
-    _canelButton.titleLabel.font = [UIFont systemFontOfSize: 16];
-    _canelButton.frame = CGRectMake(0, 0, 48, 40);
-    [_canelButton setTitle:@"编辑" forState:UIControlStateNormal];
-    [_canelButton addTarget:self action:@selector(clickCanelButton) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *canelButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_canelButton];
-    self.navigationItem.rightBarButtonItem = canelButtonItem;
-    
     isViewDidAppear = NO;
+    isViewWillAppear = NO;
     _isEdit = NO;
     [self addHeader];
     [self addFooter];
     _recordPage = 1;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if(isViewWillAppear == NO)
+    {
+        if([_bUser.objectId isEqualToString:[BmobUser currentUser].objectId])
+        {
+            _canelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            _canelButton.backgroundColor = [UIColor clearColor];
+            _canelButton.titleLabel.font = [UIFont systemFontOfSize: 16];
+            _canelButton.frame = CGRectMake(0, 0, 48, 40);
+            [_canelButton setTitle:@"编辑" forState:UIControlStateNormal];
+            [_canelButton addTarget:self action:@selector(clickCanelButton) forControlEvents:UIControlEventTouchUpInside];
+            UIBarButtonItem *canelButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_canelButton];
+            self.navigationItem.rightBarButtonItem = canelButtonItem;
+        }
+        else
+        {
+//            _canelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//            _canelButton.backgroundColor = [UIColor clearColor];
+//            _canelButton.titleLabel.font = [UIFont systemFontOfSize: 16];
+//            _canelButton.frame = CGRectMake(0, 0, 48, 40);
+//            [_canelButton setTitle:@"关注作者" forState:UIControlStateNormal];
+//            [_canelButton addTarget:self action:@selector(clickFollowButton) forControlEvents:UIControlEventTouchUpInside];
+//            UIBarButtonItem *canelButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_canelButton];
+//            self.navigationItem.rightBarButtonItem = canelButtonItem;
+        }
+        isViewWillAppear = YES;
+    }
 }
 
 -(void)clickCanelButton
@@ -72,6 +96,11 @@
     else
         [_canelButton setTitle:@"编辑" forState:UIControlStateNormal];
     [_myCollectionView reloadData];
+}
+
+-(void)clickFollowButton
+{
+    //关注
 }
 
 - (void)addHeader
@@ -106,12 +135,11 @@
 -(void)getMyWork:(long)page
 {
     __weak typeof(self) vc = self;
-    BmobUser * bUser = [BmobUser currentUser];
     BmobQuery   *bquery = [StickFigureImgObj query];
     bquery.limit = MAX_SERVICE_PAGE;
     bquery.skip = MAX_SERVICE_PAGE * (page-1);
-    [bquery whereKey:@"userInfo" equalTo:bUser];
-    [bquery orderByDescending:@"updatedAt"];
+    [bquery whereKey:@"userInfo" equalTo:_bUser];
+    [bquery orderByDescending:@"likeNum"];
     //查找GameScore表里面id为0c6db13c的数据
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         NSMutableArray * temp = [[NSMutableArray alloc]init];
@@ -166,6 +194,7 @@
     static NSString *moreCellIdentifier = @"MyWorkCollectionViewCell";
     StickFigureImgObj * sfObj = [_showDataAry objectAtIndex:indexPath.row];
     MyWorkCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:moreCellIdentifier forIndexPath:indexPath];
+    __weak typeof(cell) weakCell = cell;
     cell.sfImg.layer.borderColor = [UIColor orangeColor].CGColor;
     cell.sfImg.layer.borderWidth = 1.0f;
     cell.sfImg.layer.cornerRadius = 6.0;
@@ -175,6 +204,30 @@
             } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             }];
     }];
+    [cell.likeBtn setImage:[UIImage imageNamed:@"circleGoodCheckImg"] forState:UIControlStateNormal];
+    cell.likeNumLab.text = (sfObj.likeNum == nil) ? @"":[NSString stringWithFormat:@"%@",sfObj.likeNum];
+    
+//    //关联对象表 查询赞过的所有人
+//    BmobQuery *bquery = [BmobQuery queryWithClassName:@"_User"];
+//    BmobObject *post = [BmobObject objectWithoutDataWithClassName:@"StickFigureImgObj" objectId:sfObj.objectId];
+//    [bquery whereObjectKey:@"likes" relatedTo:post];
+    cell.clickLikeDone = ^{
+        //修改赞的个数字段
+        StickFigureImgObj *stickFigureObj = [[StickFigureImgObj alloc] init];
+        stickFigureObj = sfObj;
+        if(sfObj.likeNum == nil || [sfObj.likeNum integerValue] == 0){
+            stickFigureObj.likeNum = [NSNumber numberWithInteger:1];
+        }else{
+            NSUInteger num = [sfObj.likeNum intValue]+1;
+            stickFigureObj.likeNum = [NSNumber numberWithInteger:num];
+        }
+        [stickFigureObj sub_updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+            if(isSuccessful){
+                weakCell.likeNumLab.text = [NSString stringWithFormat:@"%@",stickFigureObj.likeNum];
+            }
+        }];
+    };
+    
     if(_isEdit)
         cell.editBtn.hidden = NO;
     else

@@ -11,5 +11,6 @@
 @interface MyWorkViewController : RootViewController<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
+@property (nonatomic, strong) BmobUser * bUser;
 
 @end

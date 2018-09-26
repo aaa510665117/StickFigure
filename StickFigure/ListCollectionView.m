@@ -7,10 +7,11 @@
 //
 
 #import "ListCollectionView.h"
+#import "MyWorkViewController.h"
 
 #define MAX_SERVICE_PAGE 20
 
-@interface ListCollectionView()<MWPhotoBrowserDelegate>
+@interface ListCollectionView()
 
 @property(nonatomic, strong) NSMutableArray * showDataAry;
 @property (nonatomic, assign) long recordPage;
@@ -83,6 +84,7 @@
     [bquery whereKey:@"type" equalTo:[NSString stringWithFormat:@"%d",_sftype]];
 //    [bquery orderByDescending:@"updatedAt"];
     [bquery orderByDescending:@"likeNum"];
+    [bquery includeKey:@"userInfo"];
 
     //查找GameScore表里面id为0c6db13c的数据
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
@@ -167,11 +169,22 @@
     [cell.likeBtn setImage:[UIImage imageNamed:@"circleGoodCheckImg"] forState:UIControlStateNormal];
     cell.likeNumLab.text = (sfObj.likeNum == nil) ? @"":[NSString stringWithFormat:@"%@",sfObj.likeNum];
     
+    UserProfile *user = [[UserProfile alloc] initFromBmobObject:sfObj.userInfo];
+    [cell.userImg sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:user.userImage] placeholderImage:[UIImage imageNamed:@"noSexDoc"] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    }];
+    cell.clickUserDone = ^{
+        //点击用户头像
+        MyWorkViewController * myWork = [[MyWorkViewController alloc]init];
+        myWork.bUser = sfObj.userInfo;
+        myWork.hidesBottomBarWhenPushed = YES;
+        [[ToolsFunction getCurrentRootViewController].navigationController pushViewController:myWork animated:YES];
+    };
+    
     //关联对象表 查询赞过的所有人
     BmobQuery *bquery = [BmobQuery queryWithClassName:@"_User"];
     BmobObject *post = [BmobObject objectWithoutDataWithClassName:@"StickFigureImgObj" objectId:sfObj.objectId];
     [bquery whereObjectKey:@"likes" relatedTo:post];
-    
     cell.clickLikeDone = ^{
         //修改赞的个数字段
         StickFigureImgObj *stickFigureObj = [[StickFigureImgObj alloc] init];

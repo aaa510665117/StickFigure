@@ -16,6 +16,7 @@
 		1AE7FD4E1F18BDC2002666DA /* StickFigure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE7FD4D1F18BDC2002666DA /* StickFigure.storyboard */; };
 		1AE7FD511F18BDDE002666DA /* StickFigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD501F18BDDE002666DA /* StickFigureViewController.m */; };
 		1AE7FD581F18C46C002666DA /* StickTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7FD571F18C46C002666DA /* StickTypeCollectionViewCell.m */; };
+		DE5DEF7321539F470023D140 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5DEF7221539F470023D140 /* StoreKit.framework */; };
 		DE83A245213E117400DC887D /* SEUpDownAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83A240213E117400DC887D /* SEUpDownAPI.m */; };
 		DE83A246213E117400DC887D /* ZYHttpAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83A241213E117400DC887D /* ZYHttpAPI.m */; };
 		DE98CBF22143671C00F351F4 /* DiyMjRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98CBF12143671C00F351F4 /* DiyMjRefresh.m */; };
@@ -100,6 +101,7 @@
 		498D707326E41C64291E0639 /* Pods-StickFigure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StickFigure.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StickFigure/Pods-StickFigure.debug.xcconfig"; sourceTree = "<group>"; };
 		800C73853689F6A2CD59C59E /* Pods-StickFigure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StickFigure.release.xcconfig"; path = "Pods/Target Support Files/Pods-StickFigure/Pods-StickFigure.release.xcconfig"; sourceTree = "<group>"; };
 		DE0B07FE21475608000D396A /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
+		DE5DEF7221539F470023D140 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		DE83A240213E117400DC887D /* SEUpDownAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEUpDownAPI.m; sourceTree = "<group>"; };
 		DE83A241213E117400DC887D /* ZYHttpAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYHttpAPI.m; sourceTree = "<group>"; };
 		DE83A242213E117400DC887D /* SEUpDownAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEUpDownAPI.h; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE5DEF7321539F470023D140 /* StoreKit.framework in Frameworks */,
 				E45D1CD1C5B626F1892B6610 /* libPods-StickFigure.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +299,7 @@
 		8C5619F8B6BF3E1175F372C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DE5DEF7221539F470023D140 /* StoreKit.framework */,
 				3DF896D53A54B131D97C11D1 /* libPods-StickFigure.a */,
 			);
 			name = Frameworks;
